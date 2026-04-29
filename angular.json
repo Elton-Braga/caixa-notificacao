@@ -21,12 +21,11 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
+              "baseHref": "/caixa-notificacao/",
               "budgets": [
                 {
                   "type": "initial",
@@ -74,9 +73,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           }
         },
         "deploy": {
