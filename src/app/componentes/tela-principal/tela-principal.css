@@ -1,0 +1,356 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+/* LAYOUT */
+.full-height {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔵 TOPO GOV */
+.topo-gov {
+  background: #071d41;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 3.5rem;
+}
+
+.gov-center {
+  display: flex;
+  gap: 20px;
+  opacity: 0.9;
+}
+
+.gov-left {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.alerta {
+  color: #ff4d4f;
+  font-weight: 600;
+}
+
+/* 🔷 TOPO SISTEMA */
+.topo-sistema {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sistema-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 2.1rem;
+  color: #1351b4;
+  margin-left: 1.2rem;
+}
+.pipe {
+  font-size: 2.1rem;
+  color: #1351b4;
+}
+.icone {
+  font-size: 30px !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.titulo {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.sistema-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.badge {
+  background: #1351b4;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+/* 🧭 BREADCRUMB */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: #6b7280;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 📦 CONTEÚDO */
+.conteudo {
+  display: flex;
+  flex: 1;
+}
+
+/* 🟦 SIDEBAR */
+.sidebar {
+  width: 280px;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+}
+
+.menu h4,
+.ajuda h4 {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item:hover {
+  background: #f1f5f9;
+}
+
+.menu-item.ativo {
+  background: #e8f0fe;
+  color: #1351b4;
+  font-weight: 600;
+}
+
+.ajuda {
+  margin-top: 20px;
+}
+
+.ajuda a {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #1351b4;
+  cursor: pointer;
+}
+
+/* 🟩 MAIN */
+.main {
+  flex: 1;
+  padding: 24px;
+}
+
+/* HEADER */
+.header-notificacoes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header-notificacoes h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.header-notificacoes p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-outline:hover {
+  background: #f9fafb;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.tabs span {
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.tabs .ativo {
+  border-bottom: 2px solid #1351b4;
+  color: #1351b4;
+  font-weight: 600;
+}
+
+/* LISTA */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.item:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.barra {
+  width: 4px;
+  height: 100%;
+  background: #e03131;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.barra.azul {
+  background: #1351b4;
+}
+
+.icone {
+  font-size: 22px;
+  width: 40px;
+  text-align: center;
+}
+
+.conteudo-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.conteudo-item p {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.prioridade {
+  color: #e03131;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.info {
+  margin-left: auto;
+  text-align: right;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.nao-lida {
+  background: #e8f0fe;
+  color: #1351b4;
+}
+
+/* 🔻 FOOTER FIXO */
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  font-size: 18px;
+}
+
+mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  color: #374151;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.sistema-right > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.notificacao {
+  position: relative;
+}
+
+.notificacao .badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  font-size: 10px;
+}
+
+.breadcrumb mat-icon {
+  font-size: 18px;
+  color: #6b7280;
+}
