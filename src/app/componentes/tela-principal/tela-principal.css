@@ -41,12 +41,17 @@ body {
   font-size: 2rem;
   font-weight: bolder;
 }
-
+/*
 .alerta {
   color: #ff4d4f;
   font-weight: 600;
+}*/
+.alerta {
+  color: #ff4d4f;
 }
-
+.doc {
+  color: #1351b4; /* opcional */
+}
 /* 🔷 TOPO SISTEMA */
 .topo-sistema {
   background: #fff;
@@ -71,11 +76,12 @@ body {
   font-weight: 600;
   font-size: 2.1rem;
   color: #1351b4;
-  margin-left: 1.2rem;
+  margin-left: 0rem;
 }
 .pipe {
   font-size: 2.1rem;
-  color: #1351b4;
+  color: #cfcfcf;
+  font-weight: 1;
 }
 .icone {
   font-size: 30px !important;
@@ -93,6 +99,11 @@ body {
   align-items: center;
   gap: 24px;
   font-size: 14px;
+}
+.menu-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .badge {
@@ -128,6 +139,9 @@ body {
   background: #fff;
   border-right: 1px solid #e5e7eb;
   padding: 20px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .menu h4,
@@ -137,6 +151,9 @@ body {
   margin-bottom: 10px;
   font-weight: 600;
 }
+.icone mat-icon {
+  font-size: 22px;
+}
 
 .menu-item {
   display: flex;
@@ -145,7 +162,7 @@ body {
   border-radius: 6px;
   margin-bottom: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .menu-item:hover {
@@ -159,7 +176,12 @@ body {
 }
 
 .ajuda {
-  margin-top: 20px;
+  margin-top: auto;
+}
+
+.logogov {
+  width: 100px; /* ou ajuste conforme necessário */
+  height: auto;
 }
 
 .ajuda a {
@@ -217,7 +239,7 @@ body {
   gap: 24px;
   border-bottom: 1px solid #e5e7eb;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .tabs span {
@@ -286,14 +308,14 @@ body {
 
 .prioridade {
   color: #e03131;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 .info {
   margin-left: auto;
   text-align: right;
-  font-size: 12px;
+  font-size: 15px;
   color: #6b7280;
 }
 
@@ -302,7 +324,7 @@ body {
   margin-top: 5px;
   padding: 3px 8px;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .nao-lida {
@@ -353,4 +375,15 @@ mat-icon {
 .breadcrumb mat-icon {
   font-size: 18px;
   color: #6b7280;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-left p {
+  display: flex;
+  flex-direction: column;
 }

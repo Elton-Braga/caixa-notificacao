@@ -16,7 +16,9 @@
   <div class="topo-sistema">
     <div class="sistema-left">
       <mat-icon class="menu-icon icone">menu</mat-icon>
+      <span class="pipe">|</span>
 
+      <img src="../../../assets/logo.png" />
       <span class="logo">PGT</span> <span class="pipe">|</span>
       <span class="titulo">Plataforma de <br />Gestão Territorial</span>
     </div>
@@ -54,11 +56,26 @@
         <h4>NOTIFICAÇÕES</h4>
 
         <div class="menu-item ativo">
-          📥 Caixa de Notificações
+          <span class="menu-text">
+            <mat-icon>mail</mat-icon>
+            Caixa de Notificações
+          </span>
           <span class="badge">3</span>
         </div>
 
-        <div class="menu-item">⚙ Configurações</div>
+        <div class="menu-item">
+          <span class="menu-text">
+            <mat-icon>draw</mat-icon>
+            Assinar documentos
+          </span>
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-text">
+            <mat-icon>settings</mat-icon>
+            Configurações
+          </span>
+        </div>
       </div>
 
       <div class="ajuda">
@@ -78,8 +95,15 @@
         </div>
 
         <div class="acoes">
-          <button class="btn-outline">✔ Marcar todas como lidas</button>
-          <button class="btn-outline">⚙ Filtrar e ordenar</button>
+          <button mat-stroked-button>
+            <mat-icon>done_all</mat-icon>
+            Marcar todas como lidas
+          </button>
+
+          <button mat-stroked-button>
+            <mat-icon>tune</mat-icon>
+            Filtrar e ordenar
+          </button>
         </div>
       </div>
 
@@ -97,11 +121,13 @@
         <div class="item alta">
           <div class="barra"></div>
 
-          <div class="icone alerta">⚠</div>
+          <div class="icone alerta">
+            <mat-icon>warning</mat-icon>
+          </div>
 
           <div class="conteudo-item">
             <span class="prioridade">ALTA PRIORIDADE</span>
-            <h4>Vencimento de Contrato</h4>
+            <h3>Vencimento de Contrato</h3>
             <p>O contrato vencerá em 7 dias</p>
           </div>
 
@@ -115,10 +141,12 @@
         <div class="item">
           <div class="barra azul"></div>
 
-          <div class="icone doc">📄</div>
+          <div class="icone doc">
+            <mat-icon>description</mat-icon>
+          </div>
 
           <div class="conteudo-item">
-            <h4>Novo Contrato Adicionado</h4>
+            <h3>Novo Contrato Adicionado</h3>
             <p>Contrato de manutenção incluído</p>
           </div>
 
@@ -134,8 +162,14 @@
   <!-- 🔻 FOOTER -->
   <footer class="footer">
     <div class="footer-left">
-      <span class="gov-logo">gov.br</span>
-      <span>Governo Federal</span>
+      <img
+        src="https://barra.sistema.gov.br/v1/assets/govbr.webp"
+        class="logogov"
+      />
+      <p>
+        <span>Governo Federal</span>
+        <span class="titulo">Brasil unido e reconstruído</span>
+      </p>
     </div>
 
     <div class="footer-right">
