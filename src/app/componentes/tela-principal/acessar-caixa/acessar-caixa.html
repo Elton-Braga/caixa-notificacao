@@ -1,1 +1,68 @@
-<p>acessar-caixa works!</p>
+<div class="header-notificacoes">
+  <div>
+    <h2>Caixa de Notificações</h2>
+    <p>Acompanhe aqui todas as notificações enviadas para você.</p>
+  </div>
+
+  <div class="acoes">
+    <button mat-stroked-button>
+      <mat-icon>done_all</mat-icon>
+      Marcar todas como lidas
+    </button>
+
+    <button mat-stroked-button>
+      <mat-icon>tune</mat-icon>
+      Filtrar e ordenar
+    </button>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <span class="ativo">Todas <b>3</b></span>
+  <span>Não lidas <b>3</b></span>
+  <span>Lidas</span>
+  <span>Arquivadas</span>
+</div>
+
+<!-- LISTA -->
+<div class="lista">
+  <!-- ITEM -->
+  <div class="item alta">
+    <div class="barra"></div>
+
+    <div class="icone alerta">
+      <mat-icon>warning</mat-icon>
+    </div>
+
+    <div class="conteudo-item">
+      <span class="prioridade">ALTA PRIORIDADE</span>
+      <h3>Vencimento de Contrato</h3>
+      <p>O contrato vencerá em 7 dias</p>
+    </div>
+
+    <div class="info">
+      <span>Hoje, 10:30</span>
+      <span class="status nao-lida">Não lida</span>
+    </div>
+  </div>
+
+  <!-- ITEM -->
+  <div class="item">
+    <div class="barra azul"></div>
+
+    <div class="icone doc">
+      <mat-icon>description</mat-icon>
+    </div>
+
+    <div class="conteudo-item">
+      <h3>Novo Contrato Adicionado</h3>
+      <p>Contrato de manutenção incluído</p>
+    </div>
+
+    <div class="info">
+      <span>Hoje, 09:15</span>
+      <span class="status nao-lida">Não lida</span>
+    </div>
+  </div>
+</div>
