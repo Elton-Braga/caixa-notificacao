@@ -20,8 +20,8 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/caixa-notificacao/browser/",
-              "deployUrl": "/caixa-notificacao/browser/",
+              "baseHref": "/caixa-notificacao/",
+              "deployUrl": "/caixa-notificacao/",
               "budgets": [
                 {
                   "type": "initial",
