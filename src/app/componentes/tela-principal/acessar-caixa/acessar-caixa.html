@@ -1,7 +1,7 @@
 <div class="header-notificacoes">
   <div>
-    <h2>Caixa de Notificações</h2>
-    <p>Acompanhe aqui todas as notificações enviadas para você.</p>
+    <h2>{{ dados.cabecalho.titulo }}</h2>
+    <p>{{ dados.cabecalho.descricao }}</p>
   </div>
 
   <div class="acoes">
@@ -19,50 +19,39 @@
 
 <!-- TABS -->
 <div class="tabs">
-  <span class="ativo">Todas <b>3</b></span>
-  <span>Não lidas <b>3</b></span>
-  <span>Lidas</span>
-  <span>Arquivadas</span>
+  <span *ngFor="let tab of dados.tabs" [class.ativo]="tab.ativa">
+    {{ tab.nome }}
+    <b *ngIf="tab.quantidade">{{ tab.quantidade }}</b>
+  </span>
 </div>
 
 <!-- LISTA -->
 <div class="lista">
-  <!-- ITEM -->
-  <div class="item alta">
-    <div class="barra"></div>
+  <div
+    class="item"
+    *ngFor="let msg of dados.mensagens"
+    [ngClass]="getClassePrioridade(msg)"
+  >
+    <div class="barra" [ngClass]="getClasseBarra(msg.tipo)"></div>
 
-    <div class="icone alerta">
-      <mat-icon>warning</mat-icon>
+    <div class="icone" [ngClass]="msg.tipo">
+      <mat-icon>{{ getIcon(msg.tipo) }}</mat-icon>
     </div>
 
     <div class="conteudo-item">
-      <span class="prioridade">ALTA PRIORIDADE</span>
-      <h3>Vencimento de Contrato</h3>
-      <p>O contrato vencerá em 7 dias</p>
+      <span *ngIf="msg.prioridade === 'alta'" class="prioridade">
+        ALTA PRIORIDADE
+      </span>
+
+      <h3>{{ msg.titulo }}</h3>
+      <p>{{ msg.descricao }}</p>
     </div>
 
     <div class="info">
-      <span>Hoje, 10:30</span>
-      <span class="status nao-lida">Não lida</span>
-    </div>
-  </div>
-
-  <!-- ITEM -->
-  <div class="item">
-    <div class="barra azul"></div>
-
-    <div class="icone doc">
-      <mat-icon>description</mat-icon>
-    </div>
-
-    <div class="conteudo-item">
-      <h3>Novo Contrato Adicionado</h3>
-      <p>Contrato de manutenção incluído</p>
-    </div>
-
-    <div class="info">
-      <span>Hoje, 09:15</span>
-      <span class="status nao-lida">Não lida</span>
+      <span>{{ msg.data }}</span>
+      <span class="status" [ngClass]="msg.status">
+        {{ msg.status === "nao-lida" ? "Não lida" : msg.status }}
+      </span>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { TelaPrincipal } from './componentes/tela-principal/tela-principal';
 import { AcessarCaixa } from './componentes/tela-principal/acessar-caixa/acessar-caixa';
+import { Mensagens } from './componentes/tela-principal/acessar-caixa/mensagens/mensagens';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,10 @@ export const routes: Routes = [
       {
         path: 'caixa',
         component: AcessarCaixa,
+      },
+      {
+        path: 'mensagens',
+        component: Mensagens,
       },
       {
         path: '',

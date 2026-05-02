@@ -1,0 +1,64 @@
+import { CaixaNotificacoes } from '../interfaces/caixa-notificacoes';
+
+export const NOTIFICACOES_MOCK: CaixaNotificacoes = {
+  cabecalho: {
+    titulo: 'Caixa de Notificações',
+    descricao: 'Acompanhe aqui todas as notificações enviadas para você.',
+  },
+  tabs: [
+    { nome: 'Todas', quantidade: 5, ativa: true },
+    { nome: 'Não lidas', quantidade: 3, ativa: false },
+    { nome: 'Lidas', quantidade: 1, ativa: false },
+    { nome: 'Arquivadas', quantidade: 1, ativa: false },
+  ],
+  mensagens: [
+    {
+      id: 1,
+      titulo: 'Vencimento de Contrato',
+      descricao: 'O contrato vencerá em 7 dias',
+      descricaoCompleta: 'Lorem ipsum...',
+      tipo: 'alerta',
+      prioridade: 'alta',
+      data: 'Hoje, 10:30',
+      status: 'nao-lida',
+    },
+    {
+      id: 2,
+      titulo: 'Novo Contrato Adicionado',
+      descricao: 'Contrato de manutenção incluído',
+      descricaoCompleta: 'Ut enim...',
+      tipo: 'doc',
+      data: 'Hoje, 09:15',
+      status: 'nao-lida',
+    },
+    {
+      id: 3,
+      titulo: 'Atualização de Sistema',
+      descricao: 'Nova versão disponível',
+      descricaoCompleta: 'Duis aute...',
+      tipo: 'alerta',
+      prioridade: 'normal',
+      data: 'Ontem, 18:40',
+      status: 'lida',
+    },
+    {
+      id: 4,
+      titulo: 'Documento Revisado',
+      descricao: 'Documento revisado com sucesso',
+      descricaoCompleta: 'Excepteur...',
+      tipo: 'doc',
+      data: 'Ontem, 14:10',
+      status: 'arquivada',
+    },
+    {
+      id: 5,
+      titulo: 'Alerta de Segurança',
+      descricao: 'Tentativa de acesso não reconhecida',
+      descricaoCompleta: 'Sed ut...',
+      tipo: 'alerta',
+      prioridade: 'alta',
+      data: 'Hoje, 08:00',
+      status: 'nao-lida',
+    },
+  ],
+};
