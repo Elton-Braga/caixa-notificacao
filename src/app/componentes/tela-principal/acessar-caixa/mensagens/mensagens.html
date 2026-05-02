@@ -1,1 +1,20 @@
-<p>mensagens works!</p>
+<div class="container-mensagem" *ngIf="mensagem">
+  <button mat-stroked-button (click)="voltar()">Voltar</button>
+
+  <h2>{{ mensagem.titulo }}</h2>
+
+  <p class="descricao-curta">{{ mensagem.descricao }}</p>
+
+  <div class="detalhes">
+    <p><strong>Data:</strong> {{ mensagem.data }}</p>
+    <!--
+    <p><strong>Status:</strong> {{ mensagem.status }}</p>-->
+    <p *ngIf="mensagem.prioridade">
+      <strong>Prioridade:</strong> {{ mensagem.prioridade }}
+    </p>
+  </div>
+
+  <div class="descricao-completa">
+    {{ mensagem.descricaoCompleta }}
+  </div>
+</div>

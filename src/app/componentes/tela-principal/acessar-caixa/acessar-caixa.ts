@@ -5,6 +5,7 @@ import { CaixaNotificacoes } from '../../interfaces/caixa-notificacoes';
 import { NOTIFICACOES_MOCK } from '../../dados/notificacoes.mock';
 import { MensagemNotificacao } from '../../interfaces/mensagemnotificacao';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-acessar-caixa',
@@ -15,6 +16,14 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 })
 export class AcessarCaixa {
   dados: CaixaNotificacoes = NOTIFICACOES_MOCK;
+
+  constructor(private router: Router) {}
+
+  abrirMensagem(msg: MensagemNotificacao) {
+    this.router.navigate(['/mensagens'], {
+      state: { mensagem: msg },
+    });
+  }
 
   getIcon(tipo: string) {
     return tipo === 'alerta' ? 'warning' : 'description';

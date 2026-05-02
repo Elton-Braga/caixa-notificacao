@@ -1,0 +1,92 @@
+/* Container principal */
+.container-mensagem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+
+  background-color: #ffffff;
+  border: 1px solid #d9e1e8;
+  border-radius: 8px;
+
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Botão voltar */
+.container-mensagem button {
+  align-self: flex-start;
+
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Título */
+.container-mensagem h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0c326f; /* azul gov */
+  margin: 0;
+}
+
+/* Descrição curta */
+.descricao-curta {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+/* Bloco de detalhes */
+.detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding: 12px 16px;
+
+  background-color: #f4f8fb;
+  border-left: 4px solid #1351b4; /* azul gov forte */
+  border-radius: 6px;
+}
+
+/* Texto dos detalhes */
+.detalhes p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Labels */
+.detalhes strong {
+  color: #0c326f;
+}
+
+/* Descrição completa */
+.descricao-completa {
+  margin-top: 8px;
+
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+
+  padding-top: 16px;
+  border-top: 1px solid #e0e6ed;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container-mensagem {
+    padding: 16px;
+    margin: 16px;
+  }
+
+  .container-mensagem h2 {
+    font-size: 20px;
+  }
+
+  .descricao-completa {
+    font-size: 14px;
+  }
+}

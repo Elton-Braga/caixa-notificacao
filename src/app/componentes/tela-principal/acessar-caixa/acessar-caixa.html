@@ -38,7 +38,11 @@
       <mat-icon>{{ getIcon(msg.tipo) }}</mat-icon>
     </div>
 
-    <div class="conteudo-item">
+    <div
+      class="conteudo-item"
+      (click)="abrirMensagem(msg)"
+      style="cursor: pointer"
+    >
       <span *ngIf="msg.prioridade === 'alta'" class="prioridade">
         ALTA PRIORIDADE
       </span>
