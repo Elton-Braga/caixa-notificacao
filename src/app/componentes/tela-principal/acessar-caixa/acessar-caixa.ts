@@ -20,9 +20,7 @@ export class AcessarCaixa {
   constructor(private router: Router) {}
 
   abrirMensagem(msg: MensagemNotificacao) {
-    this.router.navigate(['/mensagens'], {
-      state: { mensagem: msg },
-    });
+    this.router.navigate(['/mensagens', msg.id]);
   }
 
   getIcon(tipo: string) {

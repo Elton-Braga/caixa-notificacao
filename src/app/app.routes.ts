@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: AcessarCaixa,
       },
       {
-        path: 'mensagens',
+        path: 'mensagens/:id',
         component: Mensagens,
       },
       {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-tela-principal',
@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './tela-principal.html',
   styleUrl: './tela-principal.css',
 })
-export class TelaPrincipal {}
+export class TelaPrincipal {
+  constructor(private router: Router) {}
+
+  irParaCaixa() {
+    this.router.navigate(['/caixa']);
+  }
+}
