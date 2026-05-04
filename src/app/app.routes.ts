@@ -9,9 +9,9 @@ export const routes: Routes = [
     path: '',
     component: TelaPrincipal,
     children: [
-      { path: 'caixa', component: AssinarDocs },
+      { path: 'assinador', component: AssinarDocs },
       {
-        path: 'assinador',
+        path: 'caixa',
         component: AcessarCaixa,
       },
       {
