@@ -1,1 +1,95 @@
-<p>assinar-docs works!</p>
+<mat-horizontal-stepper linear>
+  <!-- STEP 1 -->
+  <mat-step label="Escolher arquivo">
+    <div class="step-container">
+      <!-- INPUT REAL (oculto) -->
+      <input #fileInput type="file" (change)="onFileSelected($event)" hidden />
+
+      <!-- BOTÃO -->
+      <button class="upload-btn" (click)="fileInput.click()">
+        <mat-icon>add</mat-icon>
+        Escolher arquivo
+      </button>
+
+      <p class="info-text">
+        Escolha apenas arquivos nas extensões .DOC, .DOCX, .ODT, .JPG, .PNG ou
+        .PDF com até 20MB.
+      </p>
+
+      <!-- DROPZONE -->
+      <div
+        class="dropzone"
+        (click)="fileInput.click()"
+        (drop)="onDrop($event)"
+        (dragover)="onDragOver($event)"
+      >
+        <div class="drop-content" *ngIf="!file">
+          <mat-icon class="drop-icon">upload_file</mat-icon>
+          <p>Arraste e solte ou clique aqui para selecionar</p>
+        </div>
+
+        <!-- ARQUIVO SELECIONADO -->
+        <div *ngIf="file" class="file-info">
+          <mat-icon>description</mat-icon>
+          <span>{{ file.name }}</span>
+          <button
+            mat-button
+            color="warn"
+            (click)="removeFile(); $event.stopPropagation()"
+          >
+            Remover
+          </button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          matStepperNext
+          [disabled]="!file"
+        >
+          Avançar
+        </button>
+      </div>
+    </div>
+  </mat-step>
+
+  <!-- STEP 2 -->
+  <!-- STEP 2 -->
+  <mat-step label="Assinar arquivo">
+    <div class="step-container">
+      <p *ngIf="!pdfSrc">
+        O arquivo selecionado não é um PDF ou não pode ser visualizado.
+      </p>
+
+      <!-- VISUALIZADOR PDF -->
+      <ngx-extended-pdf-viewer
+        *ngIf="pdfSrc"
+        [src]="pdfSrc"
+        useBrowserLocale="true"
+        height="500px"
+      >
+      </ngx-extended-pdf-viewer>
+
+      <div class="actions">
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-raised-button color="primary" matStepperNext>
+          Assinar
+        </button>
+      </div>
+    </div>
+  </mat-step>
+
+  <!-- STEP 3 -->
+  <mat-step label="Baixar arquivo">
+    <div class="step-container">
+      <p>Documento assinado com sucesso.</p>
+
+      <div class="actions">
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-raised-button color="primary">Baixar arquivo</button>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

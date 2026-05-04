@@ -2,14 +2,16 @@ import { Routes } from '@angular/router';
 import { TelaPrincipal } from './componentes/tela-principal/tela-principal';
 import { AcessarCaixa } from './componentes/tela-principal/acessar-caixa/acessar-caixa';
 import { Mensagens } from './componentes/tela-principal/acessar-caixa/mensagens/mensagens';
+import { AssinarDocs } from './componentes/tela-principal/assinar-docs/assinar-docs';
 
 export const routes: Routes = [
   {
     path: '',
     component: TelaPrincipal,
     children: [
+      { path: 'caixa', component: AssinarDocs },
       {
-        path: 'caixa',
+        path: 'assinador',
         component: AcessarCaixa,
       },
       {
