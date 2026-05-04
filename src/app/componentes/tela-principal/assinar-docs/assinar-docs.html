@@ -56,21 +56,21 @@
   </mat-step>
 
   <!-- STEP 2 -->
-  <!-- STEP 2 -->
   <mat-step label="Assinar arquivo">
     <div class="step-container">
       <p *ngIf="!pdfSrc">
         O arquivo selecionado não é um PDF ou não pode ser visualizado.
       </p>
 
-      <!-- VISUALIZADOR PDF -->
-      <ngx-extended-pdf-viewer
+      <!-- VISUALIZAÇÃO COM IFRAME -->
+      <iframe
         *ngIf="pdfSrc"
         [src]="pdfSrc"
-        useBrowserLocale="true"
+        width="100%"
         height="500px"
+        style="border: 1px solid #ccc; border-radius: 8px"
       >
-      </ngx-extended-pdf-viewer>
+      </iframe>
 
       <div class="actions">
         <button mat-button matStepperPrevious>Voltar</button>
