@@ -1,0 +1,15 @@
+<div class="modal-container">
+  <h2 class="titulo">Notificações</h2>
+
+  <p class="descricao">
+    Deseja aderir ao serviço de notificações da plataforma?
+  </p>
+
+  <mat-checkbox [(ngModel)]="aderir">
+    Sim, desejo receber notificações
+  </mat-checkbox>
+
+  <div class="acoes">
+    <button mat-raised-button color="primary" (click)="confirmar()">OK</button>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.modal-container {
+  padding: 24px;
+  font-family: "Rawline", Arial, sans-serif;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1351b4; /* azul gov.br */
+  margin-bottom: 12px;
+}
+
+.descricao {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
