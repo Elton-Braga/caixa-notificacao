@@ -91,3 +91,64 @@
     font-size: 14px;
   }
 }
+
+/* 🔽 BLOCO DE ANEXO */
+.anexo-container {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.titulo-anexo {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* CARD */
+.anexo-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  transition: all 0.2s ease;
+}
+
+.anexo-card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* INFO */
+.anexo-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.anexo-icone {
+  font-size: 28px;
+  color: #1351b4;
+}
+
+.anexo-nome {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.anexo-meta {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* AÇÕES */
+.anexo-acoes {
+  display: flex;
+  gap: 10px;
+}

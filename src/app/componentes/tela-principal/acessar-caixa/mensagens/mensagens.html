@@ -17,4 +17,32 @@
   <div class="descricao-completa">
     {{ mensagem.descricaoCompleta }}
   </div>
+
+  <!-- 🔽 ADIÇÃO: DOCUMENTO ANEXADO -->
+  <div class="anexo-container" *ngIf="mensagem.tipo === 'doc'">
+    <h3 class="titulo-anexo">Documento anexado</h3>
+
+    <div class="anexo-card">
+      <div class="anexo-info">
+        <mat-icon class="anexo-icone">description</mat-icon>
+
+        <div>
+          <p class="anexo-nome">contrato.pdf</p>
+          <span class="anexo-meta">PDF • 245 KB</span>
+        </div>
+      </div>
+
+      <div class="anexo-acoes">
+        <button mat-stroked-button color="primary">
+          <mat-icon>visibility</mat-icon>
+          Visualizar documento
+        </button>
+
+        <button mat-raised-button color="primary">
+          <mat-icon>draw</mat-icon>
+          Assinar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

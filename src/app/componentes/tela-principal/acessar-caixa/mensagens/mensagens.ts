@@ -5,11 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MensagemNotificacao } from '../../../interfaces/mensagemnotificacao';
 import { NOTIFICACOES_MOCK } from '../../../dados/notificacoes.mock';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mensagens',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, NgIf],
+  imports: [CommonModule, MatButtonModule, NgIf, MatIconModule],
   templateUrl: './mensagens.html',
   styleUrl: './mensagens.css',
 })

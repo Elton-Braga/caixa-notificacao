@@ -1,79 +1,61 @@
-/* Container geral */
-.step-container {
-  padding: 24px;
-  background: #fff;
+/* 🔷 HEADER GOV */
+.header-gov {
+  margin-bottom: 20px;
 }
 
-/* Botão upload estilo gov.br */
-.upload-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #c8e6c9;
-  padding: 10px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
+.header-gov h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0c326f;
+  margin-bottom: 4px;
 }
 
-.upload-btn mat-icon {
-  font-size: 20px;
+.header-gov p {
+  font-size: 14px;
+  color: #6b7280;
 }
 
-/* Texto informativo */
-.info-text {
-  font-size: 13px;
-  color: #555;
-  margin: 12px 0;
-}
-
-/* Dropzone */
-.dropzone {
-  margin-top: 16px;
-  border: 2px dashed #cfd8dc;
-  border-radius: 8px;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f9fbfc;
-  transition: 0.3s;
-}
-
-.dropzone:hover {
-  border-color: #90caf9;
-  background-color: #f1f8ff;
-}
-
-/* Conteúdo interno */
-.drop-content {
-  text-align: center;
-  color: #6b8bb6;
-}
-
-.drop-icon {
-  font-size: 48px;
-  margin-bottom: 8px;
-}
-
-/* Arquivo selecionado */
-.file-info {
+/* Accordion estilo gov.br */
+.gov-accordion {
   margin-top: 10px;
-  text-align: center;
+}
+
+/* Header */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.titulo {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.data {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Conteúdo */
+.conteudo {
+  padding: 16px 0;
+}
+
+.descricao {
+  color: #4b5563;
+  margin-bottom: 16px;
 }
 
 /* Ações */
-.actions {
-  margin-top: 20px;
+.acoes {
   display: flex;
-  justify-content: flex-end;
   gap: 10px;
+  margin-bottom: 16px;
 }
 
-ngx-extended-pdf-viewer {
-  border: 1px solid #ddd;
+/* PDF */
+.pdf-container iframe {
+  border: 1px solid #d1d5db;
   border-radius: 8px;
-  margin-top: 12px;
 }

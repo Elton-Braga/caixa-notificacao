@@ -1,95 +1,50 @@
-<mat-horizontal-stepper linear>
-  <!-- STEP 1 -->
-  <mat-step label="Escolher arquivo">
-    <div class="step-container">
-      <!-- INPUT REAL (oculto) -->
-      <input #fileInput type="file" (change)="onFileSelected($event)" hidden />
+<!-- 🔷 HEADER PADRÃO GOV.BR -->
+<div class="header-gov">
+  <h1>Assinatura de Documentos</h1>
+  <p>Selecione os documentos disponíveis para visualização e assinatura.</p>
+</div>
 
-      <!-- BOTÃO -->
-      <button class="upload-btn" (click)="fileInput.click()">
-        <mat-icon>add</mat-icon>
-        Escolher arquivo
-      </button>
-
-      <p class="info-text">
-        Escolha apenas arquivos nas extensões .DOC, .DOCX, .ODT, .JPG, .PNG ou
-        .PDF com até 20MB.
-      </p>
-
-      <!-- DROPZONE -->
-      <div
-        class="dropzone"
-        (click)="fileInput.click()"
-        (drop)="onDrop($event)"
-        (dragover)="onDragOver($event)"
+<mat-accordion class="gov-accordion">
+  <mat-expansion-panel *ngFor="let msg of mensagensDoc">
+    <!-- HEADER -->
+    <mat-expansion-panel-header class="expandir">
+      <mat-checkbox
+        [(ngModel)]="msg.selecionado"
+        (click)="$event.stopPropagation()"
       >
-        <div class="drop-content" *ngIf="!file">
-          <mat-icon class="drop-icon">upload_file</mat-icon>
-          <p>Arraste e solte ou clique aqui para selecionar</p>
-        </div>
+      </mat-checkbox>
 
-        <!-- ARQUIVO SELECIONADO -->
-        <div *ngIf="file" class="file-info">
-          <mat-icon>description</mat-icon>
-          <span>{{ file.name }}</span>
-          <button
-            mat-button
-            color="warn"
-            (click)="removeFile(); $event.stopPropagation()"
-          >
-            Remover
-          </button>
-        </div>
+      <div class="header-content">
+        <span class="titulo">{{ msg.titulo }}</span>
+        <span class="data">{{ msg.data }}</span>
       </div>
+    </mat-expansion-panel-header>
 
-      <div class="actions">
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+      <p class="descricao">{{ msg.descricaoCompleta }}</p>
+
+      <!-- AÇÕES -->
+      <div class="acoes">
         <button
-          mat-raised-button
+          mat-stroked-button
           color="primary"
-          matStepperNext
-          [disabled]="!file"
+          (click)="visualizarDocumento(msg)"
         >
-          Avançar
+          <mat-icon>visibility</mat-icon>
+          Visualizar documento
+        </button>
+
+        <button mat-raised-button color="primary">
+          <mat-icon>draw</mat-icon>
+          Assinar documento
         </button>
       </div>
-    </div>
-  </mat-step>
 
-  <!-- STEP 2 -->
-  <mat-step label="Assinar arquivo">
-    <div class="step-container">
-      <p *ngIf="!pdfSrc">
-        O arquivo selecionado não é um PDF ou não pode ser visualizado.
-      </p>
-
-      <!-- VISUALIZAÇÃO COM IFRAME -->
-      <iframe
-        *ngIf="pdfSrc"
-        [src]="pdfSrc"
-        width="100%"
-        height="500px"
-        style="border: 1px solid #ccc; border-radius: 8px"
-      >
-      </iframe>
-
-      <div class="actions">
-        <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-raised-button color="primary" matStepperNext>
-          Assinar
-        </button>
+      <!-- VISUALIZAÇÃO PDF -->
+      <div *ngIf="msg.pdfSrc" class="pdf-container">
+        <iframe [src]="msg.pdfSrc" width="100%" height="500px"></iframe>
       </div>
     </div>
-  </mat-step>
-
-  <!-- STEP 3 -->
-  <mat-step label="Baixar arquivo">
-    <div class="step-container">
-      <p>Documento assinado com sucesso.</p>
-
-      <div class="actions">
-        <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-raised-button color="primary">Baixar arquivo</button>
-      </div>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+  </mat-expansion-panel>
+</mat-accordion>

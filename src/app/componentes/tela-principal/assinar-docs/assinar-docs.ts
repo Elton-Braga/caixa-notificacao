@@ -1,58 +1,49 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { NOTIFICACOES_MOCK } from '../../dados/notificacoes.mock';
+
+//import { NOTIFICACOES_MOCK } from '../../../dados/notificacoes.mock';
 
 @Component({
   selector: 'app-assinar-docs',
   standalone: true,
-  imports: [CommonModule, MatStepperModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+  ],
   templateUrl: './assinar-docs.html',
   styleUrl: './assinar-docs.css',
 })
 export class AssinarDocs {
-  file: File | null = null;
-  pdfSrc: SafeResourceUrl | null = null;
+  mensagensDoc: any[] = [];
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  removeFile() {
-    this.file = null;
-    this.pdfSrc = null;
+  ngOnInit() {
+    // 🔽 Filtra apenas documentos/contratos
+    this.mensagensDoc = NOTIFICACOES_MOCK.mensagens
+      .filter((m) => m.tipo === 'doc')
+      .map((m) => ({
+        ...m,
+        selecionado: false,
+        pdfSrc: null,
+      }));
   }
 
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.file = file;
-      this.loadPdf(file);
-    }
-  }
+  visualizarDocumento(msg: any) {
+    // 🔽 Simulação de PDF
+    const fakePdfUrl = 'assets/exemplo.pdf'; // coloque um PDF real aqui
 
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (event.dataTransfer?.files.length) {
-      const file = event.dataTransfer.files[0];
-      this.file = file;
-      this.loadPdf(file);
-    }
-  }
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  private loadPdf(file: File) {
-    if (file.type === 'application/pdf') {
-      const url = URL.createObjectURL(file);
-      this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    } else {
-      this.pdfSrc = null;
-    }
+    msg.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(fakePdfUrl);
   }
 }
