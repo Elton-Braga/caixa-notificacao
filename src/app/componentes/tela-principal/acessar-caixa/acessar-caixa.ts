@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrl: './acessar-caixa.css',
 })
 export class AcessarCaixa {
+  abaSelecionada: string = 'Todas';
   dados: CaixaNotificacoes = NOTIFICACOES_MOCK;
 
   constructor(private router: Router) {}
@@ -33,5 +34,27 @@ export class AcessarCaixa {
 
   getClasseBarra(tipo: string) {
     return tipo === 'doc' ? 'azul' : '';
+  }
+
+  selecionarTab(tab: any) {
+    this.dados.tabs.forEach((t) => (t.ativa = false));
+    tab.ativa = true;
+    this.abaSelecionada = tab.nome;
+  }
+
+  get mensagensFiltradas() {
+    switch (this.abaSelecionada) {
+      case 'Não lidas':
+        return this.dados.mensagens.filter((m) => m.status === 'nao-lida');
+
+      case 'Lidas':
+        return this.dados.mensagens.filter((m) => m.status === 'lida');
+
+      case 'Arquivadas':
+        return this.dados.mensagens.filter((m) => m.status === 'arquivada');
+
+      default:
+        return this.dados.mensagens;
+    }
   }
 }

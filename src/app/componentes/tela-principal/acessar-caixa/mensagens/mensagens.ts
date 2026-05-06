@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MensagemNotificacao } from '../../../interfaces/mensagemnotificacao';
 import { NOTIFICACOES_MOCK } from '../../../dados/notificacoes.mock';
 import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mensagens',
@@ -16,10 +17,11 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class Mensagens {
   mensagem!: MensagemNotificacao;
-
+  pdfSrc: SafeResourceUrl | null = null;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private sanitizer: DomSanitizer,
   ) {
     const nav = this.router.getCurrentNavigation();
     this.mensagem = nav?.extras?.state?.['mensagem'];
@@ -27,10 +29,12 @@ export class Mensagens {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-
     this.mensagem = NOTIFICACOES_MOCK.mensagens.find((m) => m.id === id)!;
   }
-
+  visualizarDocumento() {
+    const pdfUrl = 'assets/exemplo.pdf'; // 🔥 seu arquivo
+    this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
+  }
   voltar() {
     this.router.navigate(['/caixa']);
   }

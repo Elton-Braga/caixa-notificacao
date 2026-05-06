@@ -1,0 +1,45 @@
+<!-- 🔷 HEADER PADRÃO GOV.BR -->
+<div class="header-gov">
+  <h1>Documentos Assinados</h1>
+  <p>Selecione os documentos disponíveis para visualização e assinatura.</p>
+</div>
+
+<mat-accordion class="gov-accordion">
+  <mat-expansion-panel *ngFor="let msg of mensagensDoc">
+    <!-- HEADER -->
+    <mat-expansion-panel-header class="expandir">
+      <mat-checkbox
+        [(ngModel)]="msg.selecionado"
+        (click)="$event.stopPropagation()"
+      >
+      </mat-checkbox>
+
+      <div class="header-content">
+        <span class="titulo">{{ msg.titulo }}</span>
+        <span class="data">{{ msg.data }}</span>
+      </div>
+    </mat-expansion-panel-header>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+      <p class="descricao">{{ msg.descricaoCompleta }}</p>
+
+      <!-- AÇÕES -->
+      <div class="acoes">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="visualizarDocumento(msg)"
+        >
+          <mat-icon>visibility</mat-icon>
+          Visualizar documento
+        </button>
+      </div>
+
+      <!-- VISUALIZAÇÃO PDF -->
+      <div *ngIf="msg.pdfSrc" class="pdf-container">
+        <iframe [src]="msg.pdfSrc" width="100%" height="500px"></iframe>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

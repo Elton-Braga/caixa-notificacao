@@ -19,7 +19,12 @@
 
 <!-- TABS -->
 <div class="tabs">
-  <span *ngFor="let tab of dados.tabs" [class.ativo]="tab.ativa">
+  <span
+    *ngFor="let tab of dados.tabs"
+    [class.ativo]="tab.ativa"
+    (click)="selecionarTab(tab)"
+    style="cursor: pointer"
+  >
     {{ tab.nome }}
     <b *ngIf="tab.quantidade">{{ tab.quantidade }}</b>
   </span>
@@ -29,7 +34,7 @@
 <div class="lista">
   <div
     class="item"
-    *ngFor="let msg of dados.mensagens"
+    *ngFor="let msg of mensagensFiltradas"
     [ngClass]="getClassePrioridade(msg)"
   >
     <div class="barra" [ngClass]="getClasseBarra(msg.tipo)"></div>

@@ -33,7 +33,11 @@
       </div>
 
       <div class="anexo-acoes">
-        <button mat-stroked-button color="primary">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="visualizarDocumento()"
+        >
           <mat-icon>visibility</mat-icon>
           Visualizar documento
         </button>
@@ -43,6 +47,10 @@
           Assinar
         </button>
       </div>
+    </div>
+
+    <div *ngIf="pdfSrc" class="pdf-container">
+      <iframe [src]="pdfSrc" width="100%" height="600px"></iframe>
     </div>
   </div>
 </div>

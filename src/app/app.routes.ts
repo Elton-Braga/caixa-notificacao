@@ -3,6 +3,7 @@ import { TelaPrincipal } from './componentes/tela-principal/tela-principal';
 import { AcessarCaixa } from './componentes/tela-principal/acessar-caixa/acessar-caixa';
 import { Mensagens } from './componentes/tela-principal/acessar-caixa/mensagens/mensagens';
 import { AssinarDocs } from './componentes/tela-principal/assinar-docs/assinar-docs';
+import { DocsAssinados } from './componentes/tela-principal/docs-assinados/docs-assinados';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
       {
         path: 'mensagens/:id',
         component: Mensagens,
+      },
+      {
+        path: 'assinados',
+        component: DocsAssinados,
       },
       {
         path: '',
