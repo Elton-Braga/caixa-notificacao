@@ -25,15 +25,24 @@
       <p class="descricao">{{ msg.descricaoCompleta }}</p>
 
       <!-- AÇÕES -->
-      <div class="acoes">
-        <button
-          mat-stroked-button
-          color="primary"
-          (click)="visualizarDocumento(msg)"
-        >
-          <mat-icon>visibility</mat-icon>
-          Visualizar documento
-        </button>
+      <div class="bloco-acoes">
+        <div class="acoes">
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="visualizarDocumento(msg)"
+          >
+            <mat-icon>visibility</mat-icon>
+            Visualizar documento
+          </button>
+        </div>
+
+        <!-- ASSINATURA -->
+        <div class="assinatura-info">
+          <mat-icon>verified</mat-icon>
+
+          <span>Assinado em {{ msg.dataAssinatura }}</span>
+        </div>
       </div>
 
       <!-- VISUALIZAÇÃO PDF -->

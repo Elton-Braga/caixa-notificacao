@@ -33,7 +33,22 @@ export class DocsAssinados {
         ...m,
         selecionado: false,
         pdfSrc: null,
+        dataAssinatura: this.gerarDataAssinatura(),
       }));
+  }
+
+  gerarDataAssinatura(): string {
+    const datas = [
+      '01/05/2026 às 09:14',
+      '02/05/2026 às 11:32',
+      '03/05/2026 às 14:05',
+      '04/05/2026 às 16:48',
+      '05/05/2026 às 08:21',
+      '06/05/2026 às 10:57',
+      '07/05/2026 às 13:19',
+    ];
+
+    return datas[Math.floor(Math.random() * datas.length)];
   }
 
   visualizarDocumento(msg: any) {

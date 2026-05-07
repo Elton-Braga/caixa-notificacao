@@ -7,11 +7,18 @@ import { MensagemNotificacao } from '../../../interfaces/mensagemnotificacao';
 import { NOTIFICACOES_MOCK } from '../../../dados/notificacoes.mock';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-mensagens',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, NgIf, MatIconModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    NgIf,
+    MatIconModule,
+    MatCheckboxModule,
+  ],
   templateUrl: './mensagens.html',
   styleUrl: './mensagens.css',
 })

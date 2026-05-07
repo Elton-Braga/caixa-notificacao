@@ -1,5 +1,9 @@
 <div class="container-mensagem" *ngIf="mensagem">
-  <button mat-stroked-button (click)="voltar()">Voltar</button>
+  <div class="topo-mensagem">
+    <button mat-stroked-button (click)="voltar()">Voltar</button>
+
+    <mat-checkbox color="primary"> Dar Ciência </mat-checkbox>
+  </div>
 
   <h2>{{ mensagem.titulo }}</h2>
 
