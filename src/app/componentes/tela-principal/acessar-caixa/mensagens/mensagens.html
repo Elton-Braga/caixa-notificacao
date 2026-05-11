@@ -2,7 +2,7 @@
   <div class="topo-mensagem">
     <button mat-stroked-button (click)="voltar()">Voltar</button>
 
-    <mat-checkbox color="primary"> Dar Ciência </mat-checkbox>
+    <!--<mat-checkbox color="primary"> Dar Ciência </mat-checkbox>-->
   </div>
 
   <h2>{{ mensagem.titulo }}</h2>
@@ -35,7 +35,16 @@
           <span class="anexo-meta">PDF • 245 KB</span>
         </div>
       </div>
-
+      <div class="container-slide">
+        <mat-slide-toggle
+          [checked]="darCiencia"
+          [disabled]="darCiencia"
+          (change)="darCiencia = true"
+          [(ngModel)]="isChecked"
+        >
+          Dar ciência
+        </mat-slide-toggle>
+      </div>
       <div class="anexo-acoes">
         <button
           mat-stroked-button

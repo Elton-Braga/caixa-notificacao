@@ -8,6 +8,8 @@ import { NOTIFICACOES_MOCK } from '../../../dados/notificacoes.mock';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-mensagens',
@@ -18,6 +20,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     NgIf,
     MatIconModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './mensagens.html',
   styleUrl: './mensagens.css',
@@ -25,6 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 export class Mensagens {
   mensagem!: MensagemNotificacao;
   pdfSrc: SafeResourceUrl | null = null;
+  darCiencia = false;
+  isChecked = true;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
