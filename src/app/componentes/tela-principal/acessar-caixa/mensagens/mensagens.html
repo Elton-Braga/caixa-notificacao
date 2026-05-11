@@ -22,6 +22,17 @@
     {{ mensagem.descricaoCompleta }}
   </div>
 
+  <div class="container-slide">
+    <mat-slide-toggle
+      [checked]="darCiencia"
+      [disabled]="darCiencia"
+      (change)="darCiencia = true"
+      [(ngModel)]="isChecked"
+    >
+      Dar ciência
+    </mat-slide-toggle>
+  </div>
+
   <!-- 🔽 ADIÇÃO: DOCUMENTO ANEXADO -->
   <div class="anexo-container" *ngIf="mensagem.tipo === 'doc'">
     <h3 class="titulo-anexo">Documento anexado</h3>
@@ -35,16 +46,7 @@
           <span class="anexo-meta">PDF • 245 KB</span>
         </div>
       </div>
-      <div class="container-slide">
-        <mat-slide-toggle
-          [checked]="darCiencia"
-          [disabled]="darCiencia"
-          (change)="darCiencia = true"
-          [(ngModel)]="isChecked"
-        >
-          Dar ciência
-        </mat-slide-toggle>
-      </div>
+
       <div class="anexo-acoes">
         <button
           mat-stroked-button
