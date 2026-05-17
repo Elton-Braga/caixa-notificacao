@@ -51,7 +51,16 @@
   <!-- 📦 CONTEÚDO -->
   <div class="conteudo">
     <!-- 🟦 SIDEBAR -->
-    <aside class="sidebar">
+    <!-- BOTÃO HAMBURGUER MOBILE -->
+    <button class="mobile-menu-btn" (click)="menuAberto = !menuAberto">
+      <mat-icon>{{ menuAberto ? "close" : "menu" }}</mat-icon>
+    </button>
+
+    <!-- OVERLAY -->
+    <div class="overlay" *ngIf="menuAberto" (click)="menuAberto = false"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" [class.sidebar-open]="menuAberto">
       <div class="menu">
         <h4>NOTIFICAÇÕES</h4>
 
@@ -67,6 +76,7 @@
           class="menu-item"
           routerLink="/assinador"
           routerLinkActive="active"
+          (click)="menuAberto = false"
         >
           <span class="menu-text">
             <mat-icon>draw</mat-icon>
@@ -78,6 +88,7 @@
           class="menu-item"
           routerLink="/assinados"
           routerLinkActive="active"
+          (click)="menuAberto = false"
         >
           <span class="menu-text">
             <mat-icon>verified</mat-icon>
@@ -93,6 +104,7 @@
         </div>
       </div>
 
+      <!-- AJUDA -->
       <div class="ajuda">
         <h4>PRECISA DE AJUDA?</h4>
         <a>Perguntas frequentes</a>

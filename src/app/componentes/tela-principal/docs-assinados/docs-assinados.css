@@ -87,3 +87,154 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
+/* =========================================
+   📱 TABLETS
+========================================= */
+@media (max-width: 1024px) {
+  .header-gov h1 {
+    font-size: 22px;
+  }
+
+  .header-content {
+    gap: 12px;
+  }
+
+  .titulo {
+    font-size: 15px;
+  }
+
+  .conteudo {
+    padding: 14px 0;
+  }
+
+  .pdf-container iframe {
+    height: 420px;
+  }
+}
+
+/* =========================================
+   📱 CELULARES
+========================================= */
+@media (max-width: 768px) {
+  /* HEADER GOV */
+  .header-gov {
+    margin-bottom: 16px;
+  }
+
+  .header-gov h1 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .header-gov p {
+    font-size: 13px;
+  }
+
+  /* HEADER ACCORDION */
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 4px;
+
+    margin-left: 8px;
+
+    width: 100%;
+  }
+
+  .titulo {
+    font-size: 14px;
+    line-height: 1.4;
+
+    word-break: break-word;
+  }
+
+  .data {
+    align-self: flex-start;
+
+    font-size: 12px;
+  }
+
+  /* CONTEÚDO */
+  .conteudo {
+    padding: 12px 0;
+  }
+
+  .descricao {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* AÇÕES */
+  .bloco-acoes {
+    width: 100%;
+  }
+
+  .acoes {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .acoes button {
+    width: 100%;
+  }
+
+  /* ASSINATURA */
+  .assinatura-info {
+    font-size: 12px;
+
+    align-items: flex-start;
+
+    line-height: 1.4;
+  }
+
+  /* PDF */
+  .pdf-container iframe {
+    height: 320px;
+
+    border-radius: 6px;
+  }
+
+  /* CHECKBOX */
+  mat-checkbox {
+    transform: scale(0.95);
+  }
+}
+
+/* =========================================
+   📱 CELULARES PEQUENOS
+========================================= */
+@media (max-width: 480px) {
+  .header-gov h1 {
+    font-size: 18px;
+  }
+
+  .header-gov p {
+    font-size: 12px;
+  }
+
+  .titulo {
+    font-size: 13px;
+  }
+
+  .descricao {
+    font-size: 13px;
+  }
+
+  .assinatura-info {
+    font-size: 11px;
+  }
+
+  .pdf-container iframe {
+    height: 260px;
+  }
+
+  .header-content {
+    margin-left: 4px;
+  }
+}
