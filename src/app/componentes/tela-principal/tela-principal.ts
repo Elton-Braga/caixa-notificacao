@@ -5,7 +5,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { TelaDeadesao } from './tela-deadesao/tela-deadesao';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-tela-principal',
@@ -16,7 +15,6 @@ import { NgIf } from '@angular/common';
     RouterOutlet,
     RouterModule,
     MatCheckboxModule,
-    NgIf,
   ],
   templateUrl: './tela-principal.html',
   styleUrl: './tela-principal.css',
