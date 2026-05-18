@@ -10,10 +10,38 @@
       Marcar todas como lidas
     </button>
 
-    <button mat-stroked-button>
+    <!-- DESKTOP -->
+    <button mat-stroked-button class="desktop-filter-btn">
       <mat-icon>tune</mat-icon>
       Filtrar e ordenar
     </button>
+
+    <!-- MOBILE -->
+    <button
+      mat-stroked-button
+      class="mobile-filter-btn"
+      [matMenuTriggerFor]="menuTabs"
+    >
+      <mat-icon>tune</mat-icon>
+      Filtrar
+    </button>
+
+    <!-- MENU DROPDOWN -->
+    <mat-menu #menuTabs="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let tab of dados.tabs"
+        (click)="selecionarTab(tab)"
+      >
+        <mat-icon *ngIf="tab.ativa">check</mat-icon>
+
+        <span>{{ tab.nome }}</span>
+
+        <span class="menu-badge" *ngIf="tab.quantidade">
+          {{ tab.quantidade }}
+        </span>
+      </button>
+    </mat-menu>
   </div>
 </div>
 

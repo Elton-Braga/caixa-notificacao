@@ -125,6 +125,27 @@
   color: #1351b4;
 }
 
+.menu-badge {
+  margin-left: auto;
+
+  background: #1351b4;
+  color: #fff;
+
+  border-radius: 12px;
+
+  padding: 2px 8px;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   BOTÕES FILTRO
+========================================= */
+
+.mobile-filter-btn {
+  display: none;
+}
+
 /* =========================================
    📱 TABLETS
 ========================================= */
@@ -167,6 +188,25 @@
   /* OCULTAR CABEÇALHO */
   .header-notificacoes > div:first-child {
     display: none;
+  }
+
+  /* ESCONDER TABS */
+  .tabs {
+    display: none;
+  }
+
+  /* ESCONDER BOTÃO DESKTOP */
+  .desktop-filter-btn {
+    display: none;
+  }
+
+  /* EXIBIR BOTÃO MOBILE */
+  .mobile-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
   }
 
   .main {

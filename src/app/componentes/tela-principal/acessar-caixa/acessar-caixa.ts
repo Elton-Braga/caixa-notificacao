@@ -6,11 +6,19 @@ import { NOTIFICACOES_MOCK } from '../../dados/notificacoes.mock';
 import { MensagemNotificacao } from '../../interfaces/mensagemnotificacao';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-acessar-caixa',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, NgFor, NgIf, CommonModule],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    NgFor,
+    NgIf,
+    CommonModule,
+    MatMenuModule,
+  ],
   templateUrl: './acessar-caixa.html',
   styleUrl: './acessar-caixa.css',
 })
