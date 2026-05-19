@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CaixaNotificacoes } from '../../interfaces/caixa-notificacoes';
@@ -7,6 +7,7 @@ import { MensagemNotificacao } from '../../interfaces/mensagemnotificacao';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-acessar-caixa',
@@ -25,15 +26,42 @@ import { MatMenuModule } from '@angular/material/menu';
 export class AcessarCaixa {
   abaSelecionada: string = 'Todas';
   dados: CaixaNotificacoes = NOTIFICACOES_MOCK;
+  isMobile = false;
+  constructor(
+    private router: Router,
+    private breakpoint: BreakpointObserver,
+  ) {}
 
-  constructor(private router: Router) {}
+  ngOnInit() {
+    this.verificarTela();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.verificarTela();
+  }
+
+  verificarTela() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  checkScreen() {
+    this.isMobile = window.innerWidth <= 768;
+  }
 
   abrirMensagem(msg: MensagemNotificacao) {
     this.router.navigate(['/tela-principal/mensagens', msg.id]);
   }
 
-  getIcon(tipo: string) {
-    return tipo === 'alerta' ? 'warning' : 'description';
+  getIcon(tipo: string): string {
+    switch (tipo) {
+      case 'alerta':
+        return 'warning';
+      case 'doc':
+        return 'description';
+      default:
+        return 'notifications';
+    }
   }
 
   getClassePrioridade(msg: MensagemNotificacao) {

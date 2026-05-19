@@ -5,18 +5,16 @@
   </div>
 
   <div class="acoes">
-    <button mat-stroked-button>
+    <button *ngIf="!isMobile" mat-stroked-button class="desktop-btn">
       <mat-icon>done_all</mat-icon>
       Marcar todas como lidas
     </button>
 
-    <!-- DESKTOP -->
-    <button mat-stroked-button class="desktop-filter-btn">
+    <button *ngIf="!isMobile" mat-stroked-button class="desktop-filter-btn">
       <mat-icon>tune</mat-icon>
       Filtrar e ordenar
     </button>
 
-    <!-- MOBILE -->
     <button
       mat-stroked-button
       class="mobile-filter-btn"
@@ -26,7 +24,6 @@
       Filtrar
     </button>
 
-    <!-- MENU DROPDOWN -->
     <mat-menu #menuTabs="matMenu">
       <button
         mat-menu-item
@@ -67,28 +64,26 @@
   >
     <div class="barra" [ngClass]="getClasseBarra(msg.tipo)"></div>
 
-    <div class="icone" [ngClass]="msg.tipo">
-      <mat-icon>{{ getIcon(msg.tipo) }}</mat-icon>
-    </div>
+    <div class="conteudo-item" (click)="abrirMensagem(msg)">
+      <!-- LINHA 1 -->
+      <div class="linha-topo">
+        <div class="icone" [ngClass]="msg.tipo">
+          <mat-icon>{{ getIcon(msg.tipo) }}</mat-icon>
+        </div>
 
-    <div
-      class="conteudo-item"
-      (click)="abrirMensagem(msg)"
-      style="cursor: pointer"
-    >
-      <span *ngIf="msg.prioridade === 'alta'" class="prioridade">
-        ALTA PRIORIDADE
-      </span>
+        <h3 class="titulo-msg">{{ msg.titulo }}</h3>
 
-      <h3>{{ msg.titulo }}</h3>
-      <p>{{ msg.descricao }}</p>
-    </div>
+        <span class="data-msg">{{ msg.data }}</span>
+      </div>
 
-    <div class="info">
-      <span>{{ msg.data }}</span>
-      <span class="status" [ngClass]="msg.status">
-        {{ msg.status === "nao-lida" ? "Não lida" : msg.status }}
-      </span>
+      <!-- LINHA 2 -->
+      <div class="linha-base">
+        <p class="descricao-msg">{{ msg.descricao }}</p>
+
+        <span class="status" [ngClass]="msg.status">
+          {{ msg.status === "nao-lida" ? "Não lida" : msg.status }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

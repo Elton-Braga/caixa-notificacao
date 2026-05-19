@@ -66,18 +66,9 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.barra {
-  width: 4px;
-  height: 100%;
-  background: #e03131;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 8px 0 0 8px;
-}
-
+.barra,
 .barra.azul {
-  background: #1351b4;
+  background: transparent;
 }
 
 .icone {
@@ -86,12 +77,12 @@
   text-align: center;
 }
 
-.alerta {
-  color: #ff4d4f;
+.icone.alerta mat-icon {
+  color: #f8b499;
 }
 
-.doc {
-  color: #1351b4;
+.icone.doc mat-icon {
+  color: #d1dbf7;
 }
 
 .conteudo-item p {
@@ -142,7 +133,7 @@
    BOTÕES FILTRO
 ========================================= */
 
-.mobile-filter-btn {
+.acoes .mobile-filter-btn {
   display: none;
 }
 
@@ -184,36 +175,79 @@
 /* =========================================
    📱 CELULARES
 ========================================= */
+/* =========================================
+   📱 CELULARES
+========================================= */
+/* =========================================
+   📱 CELULARES
+========================================= */
 @media (max-width: 768px) {
-  /* OCULTAR CABEÇALHO */
+  /* =========================
+     HEADER E BOTÕES
+  ========================== */
+
+  .desktop-filter-btn {
+    display: none !important;
+  }
+
   .header-notificacoes > div:first-child {
     display: none;
   }
 
-  /* ESCONDER TABS */
   .tabs {
     display: none;
   }
 
-  /* ESCONDER BOTÃO DESKTOP */
-  .desktop-filter-btn {
+  .prioridade {
     display: none;
   }
 
-  /* EXIBIR BOTÃO MOBILE */
-  .mobile-filter-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* RESET BOTÕES DESKTOP */
+  .acoes .desktop-btn,
+  .acoes .desktop-filter-btn {
+    display: none !important;
 
-    width: 100%;
+    visibility: hidden !important;
+    opacity: 0 !important;
+
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+
+    overflow: hidden !important;
+
+    pointer-events: none !important;
+
+    flex: 0 0 0 !important;
+  }
+
+  /* BOTÃO MOBILE */
+  .acoes .mobile-filter-btn {
+    display: inline-flex !important;
+
+    width: 100% !important;
+
+    justify-content: center;
+    align-items: center;
+
+    flex: 1 1 auto !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .main {
     padding: 14px;
   }
 
-  /* HEADER */
   .header-notificacoes {
     margin-bottom: 14px;
   }
@@ -229,37 +263,105 @@
     width: 100%;
   }
 
-  /* TABS */
-  .tabs {
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 16px;
-    font-size: 14px;
+  /* =========================
+     CARD (ITEM)
+  ========================== */
 
-    scrollbar-width: none;
-  }
-
-  .tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* CARDS */
   .item {
+    padding: 10px; /* redução ~40% */
+    gap: 8px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-
-    padding: 14px;
   }
 
+  /* ÍCONE */
   .icone {
-    width: auto;
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f4f6;
   }
+
+  .icone mat-icon {
+    color: #111 !important; /* preto padrão */
+  }
+
+  .item.lida .icone mat-icon {
+    color: #fff !important;
+  }
+
+  /* =========================
+     NOVA ESTRUTURA INTERNA
+  ========================== */
 
   .conteudo-item {
     width: 100%;
+    padding: 0;
   }
 
+  /* LINHA 1: ÍCONE + TÍTULO + DATA */
+  .linha-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .titulo-msg {
+    font-size: 18px; /* destaque maior */
+    font-weight: 600;
+    flex: 1;
+    color: #111;
+  }
+
+  .data-msg {
+    font-size: 13px;
+    color: #6b7280;
+    white-space: nowrap;
+  }
+
+  /* LINHA 2: DESCRIÇÃO + STATUS */
+  .linha-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .descricao-msg {
+    font-size: 15px; /* aumentado */
+    line-height: 1.5;
+    text-align: justify;
+    color: #6b7280;
+    flex: 1;
+  }
+
+  .status {
+    font-size: 14px; /* aumentado */
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  /* INFO ANTIGA (caso ainda exista em HTML legado) */
+  .info {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  /* AJUSTES GERAIS DE TEXTO */
   .conteudo-item h3 {
     font-size: 15px;
   }
@@ -267,28 +369,7 @@
   .conteudo-item p {
     font-size: 14px;
     line-height: 1.5;
-  }
-
-  .prioridade {
-    font-size: 13px;
-  }
-
-  .info {
-    width: 100%;
-    margin-left: 0;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    text-align: left;
-
-    font-size: 13px;
-  }
-
-  .status {
-    font-size: 12px;
-    padding: 4px 8px;
+    text-align: justify;
   }
 }
 

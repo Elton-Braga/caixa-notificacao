@@ -98,22 +98,33 @@
     </aside>
 
     <!-- 📱 MENU MOBILE FIXO -->
+    <!-- 📱 MENU MOBILE FIXO -->
     <nav class="bottom-nav">
+      <!-- HOME -->
+      <a class="bottom-item" routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      <!-- CAIXA -->
       <a class="bottom-item" (click)="irParaCaixa()">
         <mat-icon>mail</mat-icon>
         <span>Caixa</span>
       </a>
 
-      <a class="bottom-item" routerLink="/assinador">
+      <!-- ASSINAR -->
+      <a class="bottom-item" routerLink="/tela-principal/assinador">
         <mat-icon>draw</mat-icon>
         <span>Assinar</span>
       </a>
 
-      <a class="bottom-item" routerLink="/assinados">
+      <!-- ASSINADOS -->
+      <a class="bottom-item" routerLink="/tela-principal/assinados">
         <mat-icon>verified</mat-icon>
         <span>Assinados</span>
       </a>
 
+      <!-- AJUSTES -->
       <a class="bottom-item">
         <mat-icon>settings</mat-icon>
         <span>Ajustes</span>
