@@ -50,6 +50,6 @@ export class Mensagens {
     this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
   }
   voltar() {
-    this.router.navigate(['/caixa']);
+    this.router.navigate(['/tela-principal/caixa']);
   }
 }

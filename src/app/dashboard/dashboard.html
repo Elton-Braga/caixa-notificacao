@@ -1,0 +1,170 @@
+<!-- dashboard.html -->
+
+<div class="gov-dashboard">
+  <!-- TOPO -->
+  <header class="gov-topbar">
+    <div class="gov-topbar-content">
+      <div class="gov-logo-area">
+        <div class="">
+          <img
+            class="logo-img"
+            src="https://barra.sistema.gov.br/v1/assets/govbr.webp"
+          />
+        </div>
+
+        <nav class="gov-links">
+          <a href="#"> Órgãos do Governo </a>
+
+          <a href="#"> Acesso à Informação </a>
+
+          <a href="#"> Legislação </a>
+
+          <a href="#"> Acessibilidade </a>
+        </nav>
+      </div>
+
+      <button class="gov-user-btn">
+        <span class="material-symbols-outlined"> account_circle </span>
+
+        Entrar com gov.br
+      </button>
+    </div>
+  </header>
+  <div class="bloco-elementos">
+    <!-- TITULO -->
+    <section class="gov-title-section">
+      <div class="gov-title-content">
+        <span class="material-symbols-outlined menu-icon"> menu </span>
+
+        <h1 class="t1">Serviços e Informações do Brasil</h1>
+      </div>
+    </section>
+
+    <!-- BUSCA -->
+    <section class="gov-search-section">
+      <div class="gov-search-box">
+        <input type="text" placeholder="O que você procura?" class="busca" />
+
+        <div class="search-actions">
+          <span class="material-symbols-outlined"> mic </span>
+
+          <span class="material-symbols-outlined"> search </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÍTULO -->
+    <div class="services-title">
+      <h2 class="t2">Serviços para você</h2>
+    </div>
+    <br />
+    <!-- CARDS -->
+    <section class="gov-services">
+      <div class="services-grid">
+        <!-- CARD -->
+        <a class="service-card" routerLink="/tela-principal">
+          <div class="card-top">
+            <div class="service-icon blue">
+              <span class="material-symbols-outlined"> notifications </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Notificações</h4>
+
+            <p>
+              Consulte mensagens, acompanhe comunicados e visualize documentos.
+            </p>
+          </div>
+        </a>
+
+        <!-- CARD -->
+        <a class="service-card">
+          <div class="card-top">
+            <div class="service-icon green">
+              <span class="material-symbols-outlined"> payments </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Benefícios</h4>
+
+            <p>Consulte programas sociais e benefícios financeiros.</p>
+          </div>
+        </a>
+
+        <!-- CARD -->
+        <a class="service-card">
+          <div class="card-top">
+            <div class="service-icon orange">
+              <span class="material-symbols-outlined"> health_and_safety </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Saúde</h4>
+
+            <p>Serviços relacionados ao SUS, exames e atendimentos.</p>
+          </div>
+        </a>
+
+        <!-- CARD -->
+        <a class="service-card">
+          <div class="card-top">
+            <div class="service-icon purple">
+              <span class="material-symbols-outlined"> school </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Educação</h4>
+
+            <p>Matrículas, certificados e programas educacionais.</p>
+          </div>
+        </a>
+
+        <!-- CARD -->
+        <a class="service-card">
+          <div class="card-top">
+            <div class="service-icon red">
+              <span class="material-symbols-outlined"> directions_car </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Trânsito</h4>
+
+            <p>CNH, veículos, multas e serviços do Detran.</p>
+          </div>
+        </a>
+
+        <!-- CARD -->
+        <a class="service-card">
+          <div class="card-top">
+            <div class="service-icon cyan">
+              <span class="material-symbols-outlined"> apartment </span>
+            </div>
+
+            <span class="material-symbols-outlined arrow"> arrow_forward </span>
+          </div>
+
+          <div class="card-content">
+            <h4>Habitação</h4>
+
+            <p>Programas habitacionais e regularização urbana.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

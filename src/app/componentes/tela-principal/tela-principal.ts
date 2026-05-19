@@ -3,7 +3,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import {
+  Router,
+  RouterLink,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
 import { TelaDeadesao } from './tela-deadesao/tela-deadesao';
 
 @Component({
@@ -15,6 +20,7 @@ import { TelaDeadesao } from './tela-deadesao/tela-deadesao';
     RouterOutlet,
     RouterModule,
     MatCheckboxModule,
+    RouterLink,
   ],
   templateUrl: './tela-principal.html',
   styleUrl: './tela-principal.css',
@@ -37,6 +43,6 @@ export class TelaPrincipal {
   }
 
   irParaCaixa() {
-    this.router.navigate(['/caixa']);
+    this.router.navigate(['/tela-principal']);
   }
 }

@@ -58,22 +58,23 @@
       <div class="menu">
         <h4>NOTIFICAÇÕES</h4>
 
-        <div class="menu-item" (click)="irParaCaixa()">
+        <div class="menu-item" routerLink="/tela-principal/caixa">
           <span class="menu-text">
             <mat-icon>mail</mat-icon>
             Caixa de Notificações
           </span>
+
           <span class="badge">3</span>
         </div>
 
-        <div class="menu-item" routerLink="/assinador">
+        <div class="menu-item" routerLink="/tela-principal/assinador">
           <span class="menu-text">
             <mat-icon>draw</mat-icon>
             Assinar documentos
           </span>
         </div>
 
-        <div class="menu-item" routerLink="/assinados">
+        <div class="menu-item" routerLink="/tela-principal/assinados">
           <span class="menu-text">
             <mat-icon>verified</mat-icon>
             Documentos Assinados
