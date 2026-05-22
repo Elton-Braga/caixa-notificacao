@@ -6,6 +6,7 @@ import { Mensagens } from './componentes/tela-principal/acessar-caixa/mensagens/
 import { AssinarDocs } from './componentes/tela-principal/assinar-docs/assinar-docs';
 import { DocsAssinados } from './componentes/tela-principal/docs-assinados/docs-assinados';
 import { Dashboard } from './dashboard/dashboard';
+import { ResolucaoPendencias } from './componentes/resolucao-pendencias/resolucao-pendencias';
 
 export const routes: Routes = [
   /* PRIMEIRA TELA EXIBIDA */
@@ -43,6 +44,23 @@ export const routes: Routes = [
       {
         path: '',
         redirectTo: 'caixa',
+        pathMatch: 'full',
+      },
+    ],
+  },
+  {
+    path: 'resolucao-pendencias',
+    component: ResolucaoPendencias,
+
+    children: [
+      {
+        path: 'rota1',
+        component: AssinarDocs,
+      },
+
+      {
+        path: '',
+        redirectTo: 'chamada-principal',
         pathMatch: 'full',
       },
     ],
