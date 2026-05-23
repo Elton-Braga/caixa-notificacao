@@ -1,0 +1,41 @@
+<section class="br-card dados-basicos">
+  <div class="card-header">
+    <h2 class="titulo-secao">Dados Básicos</h2>
+  </div>
+
+  <div class="card-content">
+    <div class="grid-dados">
+      <div class="campo">
+        <span class="label-campo">Requerimento</span>
+
+        <strong class="valor-campo">
+          {{ relatorio.requerimento }}
+        </strong>
+      </div>
+
+      <div class="campo">
+        <span class="label-campo">Situação</span>
+
+        <strong class="valor-campo status-alerta">
+          {{ relatorio.situacao }}
+        </strong>
+      </div>
+
+      <div class="campo">
+        <span class="label-campo">UF / Município</span>
+
+        <strong class="valor-campo">
+          {{ relatorio.uf }} / {{ relatorio.municipio }}
+        </strong>
+      </div>
+
+      <div class="campo">
+        <span class="label-campo"> Projeto de Assentamento </span>
+
+        <strong class="valor-campo">
+          {{ relatorio.projetoAssentamento }}
+        </strong>
+      </div>
+    </div>
+  </div>
+</section>

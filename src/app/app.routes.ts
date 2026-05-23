@@ -7,6 +7,7 @@ import { AssinarDocs } from './componentes/tela-principal/assinar-docs/assinar-d
 import { DocsAssinados } from './componentes/tela-principal/docs-assinados/docs-assinados';
 import { Dashboard } from './dashboard/dashboard';
 import { ResolucaoPendencias } from './componentes/resolucao-pendencias/resolucao-pendencias';
+import { Container } from './componentes/resolucao-pendencias/container/container';
 
 export const routes: Routes = [
   /* PRIMEIRA TELA EXIBIDA */
@@ -54,13 +55,13 @@ export const routes: Routes = [
 
     children: [
       {
-        path: 'rota1',
-        component: AssinarDocs,
+        path: 'container',
+        component: Container,
       },
 
       {
         path: '',
-        redirectTo: 'chamada-principal',
+        redirectTo: 'container',
         pathMatch: 'full',
       },
     ],

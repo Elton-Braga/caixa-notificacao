@@ -1,0 +1,273 @@
+<br />
+<div class="solicitacao-wrapper">
+  <!-- PAINEL ANALÍTICO -->
+  <details class="br-accordion-item" open>
+    <summary class="accordion-header">Painel Analítico</summary>
+
+    <div class="accordion-body">
+      <div class="acoes-topo">
+        <button class="br-button secondary">Exportar PDF</button>
+
+        <button class="br-button primary">Aprovar Solicitação</button>
+      </div>
+
+      <div class="cards-analiticos">
+        @for (card of relatorio.painelAnalitico; track card.titulo) {
+          <div class="card-analitico" [class]="card.status">
+            <h3>{{ card.titulo }}</h3>
+
+            <strong>{{ card.percentual }}%</strong>
+
+            <p>
+              {{ card.descricao }}
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </details>
+
+  <!-- RESUMO GERAL -->
+  <details class="br-accordion-item">
+    <summary class="accordion-header">Resumo Geral</summary>
+
+    <div class="accordion-body">
+      <div class="dashboard-resumo">
+        <div class="resumo-card validos">
+          <span>Válidos</span>
+
+          <strong>
+            {{ relatorio.resumo.validos }}
+          </strong>
+        </div>
+
+        <div class="resumo-card atencao">
+          <span>Atenção</span>
+
+          <strong>
+            {{ relatorio.resumo.atencao }}
+          </strong>
+        </div>
+
+        <div class="resumo-card pendencias">
+          <span>Pendências</span>
+
+          <strong>
+            {{ relatorio.resumo.pendencias }}
+          </strong>
+        </div>
+      </div>
+
+      <div class="timeline">
+        @for (item of relatorio.timeline; track item.titulo) {
+          <div class="timeline-item">
+            <div
+              class="timeline-dot"
+              [class]="getStatusClass(item.status)"
+            ></div>
+
+            <div class="timeline-content">
+              <strong>
+                {{ item.titulo }}
+              </strong>
+
+              <span>
+                {{ item.data }}
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </details>
+
+  <!-- DADOS DO OCUPANTE -->
+  <details class="br-accordion-item">
+    <summary class="accordion-header">Dados do Ocupante</summary>
+
+    <div class="accordion-body">
+      <div class="dados-grid">
+        <div class="campo">
+          <label>Nome</label>
+
+          <strong>
+            {{ relatorio.ocupante.nome }}
+          </strong>
+        </div>
+
+        <div class="campo">
+          <label>CPF</label>
+
+          <strong>
+            {{ relatorio.ocupante.cpf }}
+          </strong>
+        </div>
+
+        <div class="campo">
+          <label>Sexo</label>
+
+          <strong>
+            {{ relatorio.ocupante.sexo }}
+          </strong>
+        </div>
+
+        <div class="campo">
+          <label>Data de Nascimento</label>
+
+          <strong>
+            {{ relatorio.ocupante.dataNascimento }}
+          </strong>
+        </div>
+
+        <div class="campo">
+          <label>UF Nascimento</label>
+
+          <strong>
+            {{ relatorio.ocupante.ufNascimento }}
+          </strong>
+        </div>
+
+        <div class="campo">
+          <label>Município Nascimento</label>
+
+          <strong>
+            {{ relatorio.ocupante.municipioNascimento }}
+          </strong>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TABELAS -->
+  <details class="br-accordion-item">
+    <summary class="accordion-header">Dados Profissionais</summary>
+
+    <div class="accordion-body">
+      <div class="table-responsive">
+        <table class="br-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Resposta</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (
+              item of getValidacao("Dados Pessoais")?.itens;
+              track item.titulo
+            ) {
+              <tr>
+                <td>{{ item.titulo }}</td>
+
+                <td>{{ item.resposta }}</td>
+
+                <td>
+                  <span
+                    class="status-badge"
+                    [class]="getStatusClass(item.status)"
+                  >
+                    {{ item.status }}
+                  </span>
+                </td>
+
+                <td>
+                  <button class="br-button circle small">+</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details class="br-accordion-item">
+    <summary class="accordion-header">Embargos e Fiscalizações</summary>
+
+    <div class="accordion-body">
+      <div class="table-responsive">
+        <table class="br-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Resposta</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (
+              item of getValidacao("Embargos e Fiscalização")?.itens;
+              track item.titulo
+            ) {
+              <tr>
+                <td>{{ item.titulo }}</td>
+
+                <td>{{ item.resposta }}</td>
+
+                <td>
+                  <span
+                    class="status-badge"
+                    [class]="getStatusClass(item.status)"
+                  >
+                    {{ item.status }}
+                  </span>
+                </td>
+
+                <td>
+                  <button class="br-button circle small">+</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details class="br-accordion-item">
+    <summary class="accordion-header">Titulação</summary>
+
+    <div class="accordion-body">
+      <div class="table-responsive">
+        <table class="br-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Resposta</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (item of getValidacao("Titulação")?.itens; track item.titulo) {
+              <tr>
+                <td>{{ item.titulo }}</td>
+
+                <td>{{ item.resposta }}</td>
+
+                <td>
+                  <span
+                    class="status-badge"
+                    [class]="getStatusClass(item.status)"
+                  >
+                    {{ item.status }}
+                  </span>
+                </td>
+
+                <td>
+                  <button class="br-button circle small">+</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+</div>
