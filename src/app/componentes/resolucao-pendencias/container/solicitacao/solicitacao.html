@@ -1,273 +1,115 @@
 <br />
-<div class="solicitacao-wrapper">
-  <!-- PAINEL ANALÍTICO -->
-  <details class="br-accordion-item" open>
-    <summary class="accordion-header">Painel Analítico</summary>
 
-    <div class="accordion-body">
-      <div class="acoes-topo">
-        <button class="br-button secondary">Exportar PDF</button>
+<section class="br-card detalhes-avaliacao">
+  <!-- HEADER -->
+  <div class="card-header">
+    <h2 class="titulo-secao">Detalhes de avaliação</h2>
 
-        <button class="br-button primary">Aprovar Solicitação</button>
-      </div>
+    <p class="descricao-pagina">
+      Estes são os detalhes de avaliação de
+      <strong>{{ relatorio.ocupante.nome }}</strong>
+      com número do requerimento
+      <strong>{{ relatorio.requerimento }}</strong
+      >.
+    </p>
+  </div>
 
-      <div class="cards-analiticos">
-        @for (card of relatorio.painelAnalitico; track card.titulo) {
-          <div class="card-analitico" [class]="card.status">
-            <h3>{{ card.titulo }}</h3>
+  <!-- CONTENT -->
+  <div class="card-content">
+    <div class="lista-pendencias">
+      @for (pendencia of pendencias; track pendencia.titulo) {
+        <section class="pendencia-item">
+          <!-- TOPO -->
+          <div class="topo-pendencia">
+            <div class="info-pendencia">
+              <span class="label-campo"> Pendência </span>
 
-            <strong>{{ card.percentual }}%</strong>
-
-            <p>
-              {{ card.descricao }}
-            </p>
-          </div>
-        }
-      </div>
-    </div>
-  </details>
-
-  <!-- RESUMO GERAL -->
-  <details class="br-accordion-item">
-    <summary class="accordion-header">Resumo Geral</summary>
-
-    <div class="accordion-body">
-      <div class="dashboard-resumo">
-        <div class="resumo-card validos">
-          <span>Válidos</span>
-
-          <strong>
-            {{ relatorio.resumo.validos }}
-          </strong>
-        </div>
-
-        <div class="resumo-card atencao">
-          <span>Atenção</span>
-
-          <strong>
-            {{ relatorio.resumo.atencao }}
-          </strong>
-        </div>
-
-        <div class="resumo-card pendencias">
-          <span>Pendências</span>
-
-          <strong>
-            {{ relatorio.resumo.pendencias }}
-          </strong>
-        </div>
-      </div>
-
-      <div class="timeline">
-        @for (item of relatorio.timeline; track item.titulo) {
-          <div class="timeline-item">
-            <div
-              class="timeline-dot"
-              [class]="getStatusClass(item.status)"
-            ></div>
-
-            <div class="timeline-content">
-              <strong>
-                {{ item.titulo }}
+              <strong class="valor-campo">
+                {{ pendencia.titulo }}
               </strong>
 
-              <span>
-                {{ item.data }}
+              <span class="categoria-pendencia">
+                {{ pendencia.categoria }}
               </span>
             </div>
+
+            <span
+              class="status-badge"
+              [ngClass]="getStatusClass(pendencia.status)"
+            >
+              {{ pendencia.status }}
+            </span>
           </div>
-        }
-      </div>
+
+          <!-- FORM -->
+          <div class="formulario-pendencia">
+            <!-- DESCRIÇÃO -->
+            <div class="campo-formulario">
+              <label class="label-campo"> Descrição </label>
+
+              <textarea
+                rows="4"
+                class="campo-textarea campo-bloqueado"
+                readonly
+              >
+Pendência identificada automaticamente pelo sistema durante a análise do requerimento.
+              </textarea>
+            </div>
+
+            <!-- ESPECIFICAÇÃO -->
+            <div class="campo-formulario">
+              <label class="label-campo"> Especificação </label>
+
+              <textarea
+                rows="4"
+                class="campo-textarea"
+                placeholder="Informe detalhes técnicos ou complementares..."
+                [(ngModel)]="pendencia.especificacao"
+              ></textarea>
+            </div>
+
+            <!-- JUSTIFICATIVA -->
+            <div class="campo-formulario">
+              <label class="label-campo"> Justificativa </label>
+
+              <textarea
+                rows="5"
+                class="campo-textarea"
+                placeholder="Informe a justificativa para resolução da pendência..."
+                [(ngModel)]="pendencia.justificativa"
+              ></textarea>
+            </div>
+
+            <!-- AÇÕES -->
+            <div class="acoes-card">
+              <div class="acoes-card">
+                <button
+                  mat-stroked-button
+                  type="button"
+                  class="botao-cancelar"
+                  (click)="cancelarPendencia(pendencia)"
+                >
+                  <mat-icon>close</mat-icon>
+
+                  Cancelar
+                </button>
+
+                <button
+                  mat-flat-button
+                  type="button"
+                  color="primary"
+                  class="botao-salvar"
+                  (click)="salvarResolucao(pendencia)"
+                >
+                  <mat-icon>save</mat-icon>
+
+                  Salvar resolução
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      }
     </div>
-  </details>
-
-  <!-- DADOS DO OCUPANTE -->
-  <details class="br-accordion-item">
-    <summary class="accordion-header">Dados do Ocupante</summary>
-
-    <div class="accordion-body">
-      <div class="dados-grid">
-        <div class="campo">
-          <label>Nome</label>
-
-          <strong>
-            {{ relatorio.ocupante.nome }}
-          </strong>
-        </div>
-
-        <div class="campo">
-          <label>CPF</label>
-
-          <strong>
-            {{ relatorio.ocupante.cpf }}
-          </strong>
-        </div>
-
-        <div class="campo">
-          <label>Sexo</label>
-
-          <strong>
-            {{ relatorio.ocupante.sexo }}
-          </strong>
-        </div>
-
-        <div class="campo">
-          <label>Data de Nascimento</label>
-
-          <strong>
-            {{ relatorio.ocupante.dataNascimento }}
-          </strong>
-        </div>
-
-        <div class="campo">
-          <label>UF Nascimento</label>
-
-          <strong>
-            {{ relatorio.ocupante.ufNascimento }}
-          </strong>
-        </div>
-
-        <div class="campo">
-          <label>Município Nascimento</label>
-
-          <strong>
-            {{ relatorio.ocupante.municipioNascimento }}
-          </strong>
-        </div>
-      </div>
-    </div>
-  </details>
-
-  <!-- TABELAS -->
-  <details class="br-accordion-item">
-    <summary class="accordion-header">Dados Profissionais</summary>
-
-    <div class="accordion-body">
-      <div class="table-responsive">
-        <table class="br-table">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Resposta</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            @for (
-              item of getValidacao("Dados Pessoais")?.itens;
-              track item.titulo
-            ) {
-              <tr>
-                <td>{{ item.titulo }}</td>
-
-                <td>{{ item.resposta }}</td>
-
-                <td>
-                  <span
-                    class="status-badge"
-                    [class]="getStatusClass(item.status)"
-                  >
-                    {{ item.status }}
-                  </span>
-                </td>
-
-                <td>
-                  <button class="br-button circle small">+</button>
-                </td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </details>
-
-  <details class="br-accordion-item">
-    <summary class="accordion-header">Embargos e Fiscalizações</summary>
-
-    <div class="accordion-body">
-      <div class="table-responsive">
-        <table class="br-table">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Resposta</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            @for (
-              item of getValidacao("Embargos e Fiscalização")?.itens;
-              track item.titulo
-            ) {
-              <tr>
-                <td>{{ item.titulo }}</td>
-
-                <td>{{ item.resposta }}</td>
-
-                <td>
-                  <span
-                    class="status-badge"
-                    [class]="getStatusClass(item.status)"
-                  >
-                    {{ item.status }}
-                  </span>
-                </td>
-
-                <td>
-                  <button class="br-button circle small">+</button>
-                </td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </details>
-
-  <details class="br-accordion-item">
-    <summary class="accordion-header">Titulação</summary>
-
-    <div class="accordion-body">
-      <div class="table-responsive">
-        <table class="br-table">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Resposta</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            @for (item of getValidacao("Titulação")?.itens; track item.titulo) {
-              <tr>
-                <td>{{ item.titulo }}</td>
-
-                <td>{{ item.resposta }}</td>
-
-                <td>
-                  <span
-                    class="status-badge"
-                    [class]="getStatusClass(item.status)"
-                  >
-                    {{ item.status }}
-                  </span>
-                </td>
-
-                <td>
-                  <button class="br-button circle small">+</button>
-                </td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </details>
-</div>
+  </div>
+</section>
