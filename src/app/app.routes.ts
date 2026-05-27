@@ -8,6 +8,7 @@ import { DocsAssinados } from './componentes/tela-principal/docs-assinados/docs-
 import { Dashboard } from './dashboard/dashboard';
 import { ResolucaoPendencias } from './componentes/resolucao-pendencias/resolucao-pendencias';
 import { Container } from './componentes/resolucao-pendencias/container/container';
+import { TelaServicos } from './dashboard/tela-servicos/tela-servicos';
 
 export const routes: Routes = [
   /* PRIMEIRA TELA EXIBIDA */
@@ -48,6 +49,11 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
     ],
+  },
+
+  {
+    path: 'tela-servicos',
+    component: TelaServicos,
   },
   {
     path: 'resolucao-pendencias',

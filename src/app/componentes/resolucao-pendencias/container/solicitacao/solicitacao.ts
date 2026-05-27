@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RELATORIO_INCRA_MOCK } from '../../dados/relatorio-incra.mock';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CriarJustificativa } from '../criar-justificativa/criar-justificativa';
@@ -17,8 +17,8 @@ import { CriarJustificativa } from '../criar-justificativa/criar-justificativa';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    CriarJustificativa,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   templateUrl: './solicitacao.html',
   styleUrl: './solicitacao.css',
@@ -26,41 +26,33 @@ import { CriarJustificativa } from '../criar-justificativa/criar-justificativa';
 export class Solicitacao {
   relatorio = RELATORIO_INCRA_MOCK;
 
-  // Controla o valor selecionado na combobox (inicia mostrando todas)
-  categoriaSelecionada: string = 'todas';
-
-  // Extrai dinamicamente as categorias exclusivas do Mock para alimentar o Select
-  categorias: string[] = Array.from(
-    new Set(this.relatorio.validacoes.map((c) => c.categoria)),
-  );
-
   pendencias = this.relatorio.validacoes.flatMap((categoria) =>
     categoria.itens
       .filter((item) => item.status.toLowerCase() === 'pendente')
       .map((item, index) => ({
         categoria: categoria.categoria,
         titulo: item.titulo,
+        resposta: item.resposta,
         status: item.status,
-
-        descricao: '',
-        especificacao: '',
+        descricao:
+          'Pendência identificada automaticamente pelo sistema durante a análise do requerimento.',
         justificativa: '',
-
         justificativaCriada: false,
-
-        aberto: index === 0,
+        aberto: false,
       })),
   );
-  constructor(private dialog: MatDialog) {}
-  // Filtra a lista de pendências exibida no HTML com base na escolha da combobox
-  get pendenciasFiltradas() {
-    if (this.categoriaSelecionada === 'todas') {
-      return this.pendencias;
-    }
-    return this.pendencias.filter(
-      (p) =>
-        p.categoria.toLowerCase() === this.categoriaSelecionada.toLowerCase(),
-    );
+
+  get categoriasUnicas(): string[] {
+    return [...new Set(this.pendencias.map((p) => p.categoria))];
+  }
+
+  constructor(
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+  ) {}
+
+  getPendenciasPorCategoria(categoria: string) {
+    return this.pendencias.filter((p) => p.categoria === categoria);
   }
 
   cancelarPendencia(pendencia: any): void {
@@ -103,15 +95,24 @@ export class Solicitacao {
     dialogRef.afterClosed().subscribe((resultado) => {
       if (resultado) {
         pendencia.justificativa = resultado;
-
         pendencia.justificativaCriada = true;
+
+        this.snackBar.open('Justificativa enviada com sucesso!', 'Fechar', {
+          duration: 4000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: ['toast-sucesso-azul'],
+        });
       }
     });
   }
+
   enviarJustificativa(pendencia: any): void {
     console.log('Justificativa enviada:', pendencia);
+  }
 
-    // chamada da API aqui
+  getQuantidadePorCategoria(categoria: string): number {
+    return this.pendencias.filter((p) => p.categoria === categoria).length;
   }
 
   acaoJustificativa(pendencia: any): void {

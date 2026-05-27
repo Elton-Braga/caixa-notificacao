@@ -3,6 +3,77 @@
   padding: 0;
 }
 
+::ng-deep .toast-sucesso-azul {
+  background: #1976d2 !important;
+  color: #ffffff !important;
+}
+
+::ng-deep .toast-sucesso-azul .mat-mdc-snack-bar-action {
+  color: #ffffff !important;
+}
+
+.categoria-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+}
+
+.badge-pendencia {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d32f2f;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.informacoes-pendencia {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.titulo-pendencia {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #071d41;
+}
+
+.descricao-pendencia {
+  margin: 0;
+
+  line-height: 1.5;
+
+  color: #555;
+}
+
+.resposta-pendencia {
+  padding: 12px 16px;
+
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  color: #071d41;
+
+  font-size: 14px;
+}
+
 /* ESTRUTURA DA COMBOBOX DSGOV */
 
 .br-select-container {

@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
+  standalone: true,
   selector: 'app-criar-justificativa',
   imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './criar-justificativa.html',

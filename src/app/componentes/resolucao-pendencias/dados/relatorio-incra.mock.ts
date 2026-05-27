@@ -46,6 +46,11 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
       data: 'Aguardando',
       status: 'pendente',
     },
+    {
+      titulo: 'Conclusão',
+      data: 'Aguardando',
+      status: 'pendente',
+    },
   ],
 
   validacoes: [
@@ -55,21 +60,26 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         {
           titulo: 'Cargo ou função pública',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
         },
         {
           titulo: 'Sociedade empresária ativa',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
         },
         {
           titulo: 'Possui inscrição ativa no CadÚnico',
           resposta: 'Sim',
-          status: 'Atenção',
+          status: 'Pendente',
         },
         {
           titulo: 'Beneficiário da Reforma Agrária',
           resposta: 'Sim',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Renda familiar declarada inconsistente',
+          resposta: 'Não informado',
           status: 'Pendente',
         },
       ],
@@ -81,12 +91,17 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         {
           titulo: 'Embargos ou infrações no IBAMA',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
         },
         {
           titulo: 'Trabalho análogo à escravidão',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Área sob investigação ambiental',
+          resposta: 'Sim',
+          status: 'Pendente',
         },
       ],
     },
@@ -97,12 +112,17 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         {
           titulo: 'Registro de exclusão no SIPRA',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
         },
         {
           titulo: 'Conflito agrário',
           resposta: 'Não',
-          status: 'Válido',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Sobreposição de área não regularizada',
+          resposta: 'Sim',
+          status: 'Pendente',
         },
       ],
     },
@@ -113,6 +133,18 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
       titulo: 'Dados Pessoais',
       percentual: 92,
       descricao: '92% das verificações concluídas com sucesso.',
+      status: 'success',
+    },
+    {
+      titulo: 'Dados Pessoais',
+      percentual: 90,
+      descricao: '90% das verificações concluídas com sucesso.',
+      status: 'success',
+    },
+    {
+      titulo: 'Dados Pessoais',
+      percentual: 77,
+      descricao: '77% das verificações concluídas com sucesso.',
       status: 'success',
     },
 

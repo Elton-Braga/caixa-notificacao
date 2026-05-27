@@ -1,91 +1,87 @@
-<br />
-
-<div class="br-select-container">
-  <div class="br-select">
-    <label for="select-categorias">Filtrar por Categoria</label>
-    <div class="select-input-wrapper">
-      <select id="select-categorias" [(ngModel)]="categoriaSelecionada">
-        <option value="todas">Exibir todas as categorias</option>
-        @for (cat of categorias; track cat) {
-          <option [value]="cat">{{ cat }}</option>
-        }
-      </select>
-    </div>
-  </div>
-</div>
-
-@if (pendenciasFiltradas.length > 0) {
+@if (pendencias.length > 0) {
   <section class="br-card detalhes-avaliacao">
     <div class="card-header">
       <h2 class="titulo-secao">Detalhes de avaliação</h2>
     </div>
 
     <div class="card-content">
-      <div class="lista-pendencias">
-        @for (
-          pendencia of pendenciasFiltradas;
-          track pendencia.titulo;
-          let i = $index
-        ) {
-          <details
-            class="br-accordion-item pendencia-accordion"
-            [open]="pendencia.aberto"
-            (toggle)="pendencia.aberto = item.open"
-            #item
-          >
+      <div class="br-accordion" data-group="true">
+        @for (categoria of categoriasUnicas; track categoria) {
+          <details class="br-accordion-item categoria-accordion">
             <summary class="accordion-header">
               <div class="header-conteudo">
-                <span class="status-texto">
-                  {{ pendencia.aberto ? "Aberto" : "Fechado" }}
+                <span class="categoria-texto-header">
+                  {{ categoria }}
                 </span>
-                <span class="categoria-tag">- {{ pendencia.categoria }}</span>
+                <span class="badge-pendencia">
+                  {{ getQuantidadePorCategoria(categoria) }}
+                </span>
               </div>
             </summary>
 
             <div class="accordion-body">
-              <div class="formulario-pendencia">
-                <div class="campo-formulario">
-                  <textarea
-                    rows="4"
-                    class="campo-textarea campo-bloqueado"
-                    readonly
+              <div
+                class="br-accordion lista-interna-pendencias"
+                data-group="true"
+              >
+                @for (
+                  pendencia of getPendenciasPorCategoria(categoria);
+                  track pendencia.titulo
+                ) {
+                  <details
+                    class="br-accordion-item pendencia-accordion"
+                    [open]="pendencia.aberto"
+                    (toggle)="pendencia.aberto = item.open"
+                    #item
                   >
-Pendência identificada automaticamente pelo sistema durante a análise do requerimento.
-                  </textarea>
-                </div>
-                <!--
-                <div class="campo-formulario">
-                  <label class="label-campo"> Justificativa </label>
+                    <summary class="accordion-header">
+                      <div class="header-conteudo">
+                        <span class="titulo-pendencia-header">
+                          {{ pendencia.titulo }}
+                        </span>
+                      </div>
+                    </summary>
 
-                  <textarea
-                    rows="5"
-                    class="campo-textarea"
-                    placeholder="Informe a justificativa para resolução da pendência..."
-                    [(ngModel)]="pendencia.justificativa"
-                  ></textarea>
-                </div>-->
+                    <div class="accordion-body">
+                      <div class="formulario-pendencia">
+                        <div class="informacoes-pendencia">
+                          <h3 class="titulo-pendencia">
+                            {{ pendencia.titulo }}
+                          </h3>
 
-                <div class="acoes-card">
-                  <button
-                    mat-flat-button
-                    type="button"
-                    color="primary"
-                    class="botao-salvar"
-                    (click)="acaoJustificativa(pendencia)"
-                  >
-                    <mat-icon>
-                      {{
-                        pendencia.justificativaCriada ? "send" : "add_comment"
-                      }}
-                    </mat-icon>
+                          <p class="descricao-pendencia">
+                            {{ pendencia.descricao }}
+                          </p>
+                        </div>
 
-                    {{
-                      pendencia.justificativaCriada
-                        ? "Enviar Justificativa"
-                        : "Criar Justificativa"
-                    }}
-                  </button>
-                </div>
+                        <div class="acoes-card">
+                          <button
+                            mat-flat-button
+                            type="button"
+                            color="primary"
+                            class="botao-salvar"
+                            [disabled]="pendencia.justificativaCriada"
+                            (click)="acaoJustificativa(pendencia)"
+                          >
+                            <mat-icon>
+                              {{
+                                pendencia.justificativaCriada
+                                  ? "send"
+                                  : "add_comment"
+                              }}
+                            </mat-icon>
+
+                            {{
+                              pendencia.justificativaCriada
+                                ? "Justificativa enviada"
+                                : "Criar Justificativa"
+                            }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                }
               </div>
             </div>
           </details>
