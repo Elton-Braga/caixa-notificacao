@@ -1,115 +1,92 @@
 <br />
 
-<section class="br-card detalhes-avaliacao">
-  <!-- HEADER -->
-  <div class="card-header">
-    <h2 class="titulo-secao">Detalhes de avaliação</h2>
-
-    <p class="descricao-pagina">
-      Estes são os detalhes de avaliação de
-      <strong>{{ relatorio.ocupante.nome }}</strong>
-      com número do requerimento
-      <strong>{{ relatorio.requerimento }}</strong
-      >.
-    </p>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="card-content">
-    <div class="lista-pendencias">
-      @for (pendencia of pendencias; track pendencia.titulo) {
-        <section class="pendencia-item">
-          <!-- TOPO -->
-          <div class="topo-pendencia">
-            <div class="info-pendencia">
-              <span class="label-campo"> Pendência </span>
-
-              <strong class="valor-campo">
-                {{ pendencia.titulo }}
-              </strong>
-
-              <span class="categoria-pendencia">
-                {{ pendencia.categoria }}
-              </span>
-            </div>
-
-            <span
-              class="status-badge"
-              [ngClass]="getStatusClass(pendencia.status)"
-            >
-              {{ pendencia.status }}
-            </span>
-          </div>
-
-          <!-- FORM -->
-          <div class="formulario-pendencia">
-            <!-- DESCRIÇÃO -->
-            <div class="campo-formulario">
-              <label class="label-campo"> Descrição </label>
-
-              <textarea
-                rows="4"
-                class="campo-textarea campo-bloqueado"
-                readonly
-              >
-Pendência identificada automaticamente pelo sistema durante a análise do requerimento.
-              </textarea>
-            </div>
-
-            <!-- ESPECIFICAÇÃO -->
-            <div class="campo-formulario">
-              <label class="label-campo"> Especificação </label>
-
-              <textarea
-                rows="4"
-                class="campo-textarea"
-                placeholder="Informe detalhes técnicos ou complementares..."
-                [(ngModel)]="pendencia.especificacao"
-              ></textarea>
-            </div>
-
-            <!-- JUSTIFICATIVA -->
-            <div class="campo-formulario">
-              <label class="label-campo"> Justificativa </label>
-
-              <textarea
-                rows="5"
-                class="campo-textarea"
-                placeholder="Informe a justificativa para resolução da pendência..."
-                [(ngModel)]="pendencia.justificativa"
-              ></textarea>
-            </div>
-
-            <!-- AÇÕES -->
-            <div class="acoes-card">
-              <div class="acoes-card">
-                <button
-                  mat-stroked-button
-                  type="button"
-                  class="botao-cancelar"
-                  (click)="cancelarPendencia(pendencia)"
-                >
-                  <mat-icon>close</mat-icon>
-
-                  Cancelar
-                </button>
-
-                <button
-                  mat-flat-button
-                  type="button"
-                  color="primary"
-                  class="botao-salvar"
-                  (click)="salvarResolucao(pendencia)"
-                >
-                  <mat-icon>save</mat-icon>
-
-                  Salvar resolução
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      }
+<div class="br-select-container">
+  <div class="br-select">
+    <label for="select-categorias">Filtrar por Categoria</label>
+    <div class="select-input-wrapper">
+      <select id="select-categorias" [(ngModel)]="categoriaSelecionada">
+        <option value="todas">Exibir todas as categorias</option>
+        @for (cat of categorias; track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
     </div>
   </div>
-</section>
+</div>
+
+@if (pendenciasFiltradas.length > 0) {
+  <section class="br-card detalhes-avaliacao">
+    <div class="card-header">
+      <h2 class="titulo-secao">Detalhes de avaliação</h2>
+    </div>
+
+    <div class="card-content">
+      <div class="lista-pendencias">
+        @for (
+          pendencia of pendenciasFiltradas;
+          track pendencia.titulo;
+          let i = $index
+        ) {
+          <details
+            class="br-accordion-item pendencia-accordion"
+            [open]="pendencia.aberto"
+            (toggle)="pendencia.aberto = item.open"
+            #item
+          >
+            <summary class="accordion-header">
+              <div class="header-conteudo">
+                <span class="status-texto">
+                  {{ pendencia.aberto ? "Aberto" : "Fechado" }}
+                </span>
+                <span class="categoria-tag">- {{ pendencia.categoria }}</span>
+              </div>
+            </summary>
+
+            <div class="accordion-body">
+              <div class="formulario-pendencia">
+                <div class="campo-formulario">
+                  <textarea
+                    rows="4"
+                    class="campo-textarea campo-bloqueado"
+                    readonly
+                  >
+Pendência identificada automaticamente pelo sistema durante a análise do requerimento.
+                  </textarea>
+                </div>
+
+                <div class="campo-formulario">
+                  <label class="label-campo"> Justificativa </label>
+
+                  <textarea
+                    rows="5"
+                    class="campo-textarea"
+                    placeholder="Informe a justificativa para resolução da pendência..."
+                    [(ngModel)]="pendencia.justificativa"
+                  ></textarea>
+                </div>
+
+                <div class="acoes-card">
+                  <button
+                    mat-flat-button
+                    type="button"
+                    color="primary"
+                    class="botao-salvar"
+                    (click)="salvarResolucao(pendencia)"
+                  >
+                    <mat-icon>save</mat-icon>
+                    Salvar resolução
+                  </button>
+                </div>
+              </div>
+            </div>
+          </details>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <div class="br-mensagem-vazia">
+    <mat-icon>check_circle</mat-icon>
+    <p>Nenhuma pendência encontrada para a categoria selecionada.</p>
+  </div>
+}
