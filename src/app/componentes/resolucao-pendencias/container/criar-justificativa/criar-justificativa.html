@@ -1,0 +1,22 @@
+<div class="justificativa-container">
+  <h2>Criar Justificativa</h2>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Digite a justificativa</mat-label>
+
+    <textarea
+      matInput
+      rows="6"
+      placeholder="Escreva sua justificativa aqui..."
+      [(ngModel)]="justificativa"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="acoes">
+    <button mat-stroked-button color="warn" (click)="cancelar()">
+      Cancelar
+    </button>
+
+    <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
+  </div>
+</div>

@@ -53,7 +53,7 @@
 Pendência identificada automaticamente pelo sistema durante a análise do requerimento.
                   </textarea>
                 </div>
-
+                <!--
                 <div class="campo-formulario">
                   <label class="label-campo"> Justificativa </label>
 
@@ -63,7 +63,7 @@ Pendência identificada automaticamente pelo sistema durante a análise do reque
                     placeholder="Informe a justificativa para resolução da pendência..."
                     [(ngModel)]="pendencia.justificativa"
                   ></textarea>
-                </div>
+                </div>-->
 
                 <div class="acoes-card">
                   <button
@@ -71,10 +71,19 @@ Pendência identificada automaticamente pelo sistema durante a análise do reque
                     type="button"
                     color="primary"
                     class="botao-salvar"
-                    (click)="salvarResolucao(pendencia)"
+                    (click)="acaoJustificativa(pendencia)"
                   >
-                    <mat-icon>save</mat-icon>
-                    Salvar resolução
+                    <mat-icon>
+                      {{
+                        pendencia.justificativaCriada ? "send" : "add_comment"
+                      }}
+                    </mat-icon>
+
+                    {{
+                      pendencia.justificativaCriada
+                        ? "Enviar Justificativa"
+                        : "Criar Justificativa"
+                    }}
                   </button>
                 </div>
               </div>

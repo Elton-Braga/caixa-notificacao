@@ -1,0 +1,158 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  background: #f8f8f8;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: var(--font-family-base, "Rawline", sans-serif);
+}
+
+/* CARD PRINCIPAL */
+
+.justificativa-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #dfe1e5;
+  border-radius: 12px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* TÍTULO */
+
+.justificativa-container h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #1351b4;
+}
+
+/* TEXTAREA */
+
+.full-width {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  border-radius: 8px !important;
+  background: #ffffff;
+}
+
+::ng-deep textarea.mat-mdc-input-element {
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.6;
+  font-size: 15px;
+  padding-top: 4px;
+}
+
+/* BOTÕES */
+
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* BOTÃO DSGOV */
+
+::ng-deep .mat-mdc-stroked-button,
+::ng-deep .mat-mdc-unelevated-button {
+  height: 44px;
+  border-radius: 100px !important;
+  padding: 0 24px !important;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+/* CANCELAR */
+
+::ng-deep .mat-mdc-stroked-button {
+  border: 1px solid #1351b4 !important;
+  color: #1351b4 !important;
+  background: #ffffff !important;
+}
+
+/* SALVAR */
+
+::ng-deep .mat-mdc-unelevated-button {
+  background: #1351b4 !important;
+  color: #ffffff !important;
+}
+
+/* HOVER */
+
+::ng-deep .mat-mdc-stroked-button:hover {
+  background: rgba(19, 81, 180, 0.08) !important;
+}
+
+::ng-deep .mat-mdc-unelevated-button:hover {
+  filter: brightness(0.95);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+  :host {
+    padding: 16px;
+  }
+
+  .justificativa-container {
+    padding: 24px 20px;
+    border-radius: 10px;
+  }
+
+  .justificativa-container h2 {
+    font-size: 20px;
+  }
+
+  .acoes {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .acoes button {
+    width: 100%;
+  }
+
+  ::ng-deep .mat-mdc-stroked-button,
+  ::ng-deep .mat-mdc-unelevated-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 12px;
+  }
+
+  .justificativa-container {
+    padding: 20px 16px;
+  }
+
+  .justificativa-container h2 {
+    font-size: 18px;
+  }
+
+  ::ng-deep textarea.mat-mdc-input-element {
+    min-height: 140px;
+    font-size: 14px;
+  }
+}

@@ -6,11 +6,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { RELATORIO_INCRA_MOCK } from '../../dados/relatorio-incra.mock';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CriarJustificativa } from '../criar-justificativa/criar-justificativa';
 
 @Component({
   selector: 'app-solicitacao',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    CriarJustificativa,
+    MatDialogModule,
+  ],
   templateUrl: './solicitacao.html',
   styleUrl: './solicitacao.css',
 })
@@ -36,10 +45,13 @@ export class Solicitacao {
         descricao: '',
         especificacao: '',
         justificativa: '',
+
+        justificativaCriada: false,
+
         aberto: index === 0,
       })),
   );
-
+  constructor(private dialog: MatDialog) {}
   // Filtra a lista de pendências exibida no HTML com base na escolha da combobox
   get pendenciasFiltradas() {
     if (this.categoriaSelecionada === 'todas') {
@@ -75,5 +87,39 @@ export class Solicitacao {
       default:
         return 'danger';
     }
+  }
+
+  abrirModalJustificativa(pendencia: any): void {
+    const dialogRef = this.dialog.open(CriarJustificativa, {
+      width: '700px',
+      maxWidth: '95vw',
+      disableClose: true,
+      panelClass: 'modal-justificativa',
+      data: {
+        justificativa: pendencia.justificativa || '',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((resultado) => {
+      if (resultado) {
+        pendencia.justificativa = resultado;
+
+        pendencia.justificativaCriada = true;
+      }
+    });
+  }
+  enviarJustificativa(pendencia: any): void {
+    console.log('Justificativa enviada:', pendencia);
+
+    // chamada da API aqui
+  }
+
+  acaoJustificativa(pendencia: any): void {
+    if (!pendencia.justificativaCriada) {
+      this.abrirModalJustificativa(pendencia);
+      return;
+    }
+
+    this.enviarJustificativa(pendencia);
   }
 }
