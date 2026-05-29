@@ -9,6 +9,8 @@ import { Dashboard } from './dashboard/dashboard';
 import { ResolucaoPendencias } from './componentes/resolucao-pendencias/resolucao-pendencias';
 import { Container } from './componentes/resolucao-pendencias/container/container';
 import { TelaServicos } from './dashboard/tela-servicos/tela-servicos';
+import { AcompanhamentoDeSolicitacoes } from './acompanhamento-de-solicitacoes/acompanhamento-de-solicitacoes';
+import { ContainerAcompanhamento } from './acompanhamento-de-solicitacoes/container/container';
 
 export const routes: Routes = [
   /* PRIMEIRA TELA EXIBIDA */
@@ -68,6 +70,24 @@ export const routes: Routes = [
       {
         path: '',
         redirectTo: 'container',
+        pathMatch: 'full',
+      },
+    ],
+  },
+
+  {
+    path: 'acompanhamento-solicitacoes',
+    component: AcompanhamentoDeSolicitacoes,
+
+    children: [
+      {
+        path: 'container-acompanhamento',
+        component: ContainerAcompanhamento,
+      },
+
+      {
+        path: '',
+        redirectTo: 'container-acompanhamento',
         pathMatch: 'full',
       },
     ],

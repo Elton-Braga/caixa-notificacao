@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container-acompanhamento {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* força o componente filho ocupar tudo */
+
+app-tela-acompanhamento {
+  display: block;
+  width: 100%;
+  flex: 1;
+}

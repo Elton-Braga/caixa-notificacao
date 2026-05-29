@@ -1,0 +1,158 @@
+<div class="pagina-acompanhamento">
+  <!-- HEADER -->
+  <div class="cabecalho">
+    <div class="cabecalho-info">
+      <span class="breadcrumb"> Home / Acompanhamento / Solicitações </span>
+
+      <h1>Acompanhamento de Solicitações</h1>
+
+      <p>Consulte o andamento das suas solicitações e resolva pendências.</p>
+    </div>
+
+    <div class="cabecalho-acoes">
+      <button mat-stroked-button color="primary" class="btn-atualizar">
+        <mat-icon>refresh</mat-icon>
+
+        <span>Atualizar</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="br-card tabela-card">
+    <!-- HEADER CARD -->
+    <div class="card-header">
+      <div class="header-content">
+        <div>
+          <h2>Solicitações em andamento</h2>
+
+          <span class="subtitulo">
+            Lista de protocolos vinculados ao usuário.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABELA -->
+    <div class="table-responsive">
+      <table class="gov-table">
+        <thead>
+          <tr>
+            <th>Protocolo</th>
+            <th>Serviço</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th class="acoes-coluna">Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- ITEM -->
+          <tr>
+            <td data-label="Protocolo">#2026-000154</td>
+
+            <td data-label="Serviço">Regularização Fundiária</td>
+
+            <td data-label="Data">27/05/2026</td>
+
+            <td data-label="Status">
+              <span class="status pendente">Pendências</span>
+            </td>
+
+            <td class="acoes" data-label="Ações">
+              <div class="menu-acoes">
+                <button class="btn-acoes">
+                  <span class="material-symbols-outlined"> more_vert </span>
+                </button>
+
+                <div class="dropdown-acoes">
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> warning </span>
+
+                    <span>Resolver pendências</span>
+                  </button>
+
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> visibility </span>
+
+                    <span>Visualizar</span>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ITEM -->
+          <tr>
+            <td data-label="Protocolo">#2026-000155</td>
+
+            <td data-label="Serviço">Atualização Cadastral</td>
+
+            <td data-label="Data">25/05/2026</td>
+
+            <td data-label="Status">
+              <span class="status andamento">Em análise</span>
+            </td>
+
+            <td class="acoes" data-label="Ações">
+              <div class="menu-acoes">
+                <button class="btn-acoes">
+                  <span class="material-symbols-outlined"> more_vert </span>
+                </button>
+
+                <div class="dropdown-acoes">
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> warning </span>
+
+                    <span>Resolver pendências</span>
+                  </button>
+
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> visibility </span>
+
+                    <span>Visualizar</span>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ITEM -->
+          <tr>
+            <td data-label="Protocolo">#2026-000156</td>
+
+            <td data-label="Serviço">Validação de Documentos</td>
+
+            <td data-label="Data">21/05/2026</td>
+
+            <td data-label="Status">
+              <span class="status concluido">Concluído</span>
+            </td>
+
+            <td class="acoes" data-label="Ações">
+              <div class="menu-acoes">
+                <button class="btn-acoes">
+                  <span class="material-symbols-outlined"> more_vert </span>
+                </button>
+
+                <div class="dropdown-acoes">
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> warning </span>
+
+                    <span>Resolver pendências</span>
+                  </button>
+
+                  <button class="dropdown-item">
+                    <span class="material-symbols-outlined"> visibility </span>
+
+                    <span>Visualizar</span>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
