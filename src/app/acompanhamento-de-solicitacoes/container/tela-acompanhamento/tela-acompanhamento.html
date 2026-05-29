@@ -46,8 +46,7 @@
           </tr>
         </thead>
 
-        <tbody>
-          <!-- ITEM -->
+        <!--<tbody>
           <tr>
             <td data-label="Protocolo">#2026-000154</td>
 
@@ -82,7 +81,6 @@
             </td>
           </tr>
 
-          <!-- ITEM -->
           <tr>
             <td data-label="Protocolo">#2026-000155</td>
 
@@ -117,7 +115,6 @@
             </td>
           </tr>
 
-          <!-- ITEM -->
           <tr>
             <td data-label="Protocolo">#2026-000156</td>
 
@@ -146,6 +143,45 @@
                     <span class="material-symbols-outlined"> visibility </span>
 
                     <span>Visualizar</span>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>-->
+        <tbody>
+          <tr *ngFor="let item of solicitacoes">
+            <td data-label="Protocolo">{{ item.protocolo }}</td>
+
+            <td data-label="Serviço">{{ item.servico }}</td>
+
+            <td data-label="Data">{{ item.data }}</td>
+
+            <td data-label="Status">
+              <span
+                class="status"
+                [ngClass]="{
+                  pendente: item.status === 'PENDENTE',
+                  andamento: item.status === 'EM_ANALISE',
+                  concluido: item.status === 'CONCLUIDO',
+                }"
+              >
+                {{ item.statusLabel }}
+              </span>
+            </td>
+
+            <td class="acoes" data-label="Ações">
+              <div class="menu-acoes">
+                <button class="btn-acoes">
+                  <span class="material-symbols-outlined"> more_vert </span>
+                </button>
+
+                <div class="dropdown-acoes">
+                  <button class="dropdown-item" *ngFor="let acao of item.acoes">
+                    <span class="material-symbols-outlined">
+                      {{ acao.icone }}
+                    </span>
+                    <span>{{ acao.label }}</span>
                   </button>
                 </div>
               </div>
