@@ -46,116 +46,19 @@
           </tr>
         </thead>
 
-        <!--<tbody>
-          <tr>
-            <td data-label="Protocolo">#2026-000154</td>
-
-            <td data-label="Serviço">Regularização Fundiária</td>
-
-            <td data-label="Data">27/05/2026</td>
-
-            <td data-label="Status">
-              <span class="status pendente">Pendências</span>
-            </td>
-
-            <td class="acoes" data-label="Ações">
-              <div class="menu-acoes">
-                <button class="btn-acoes">
-                  <span class="material-symbols-outlined"> more_vert </span>
-                </button>
-
-                <div class="dropdown-acoes">
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> warning </span>
-
-                    <span>Resolver pendências</span>
-                  </button>
-
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> visibility </span>
-
-                    <span>Visualizar</span>
-                  </button>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td data-label="Protocolo">#2026-000155</td>
-
-            <td data-label="Serviço">Atualização Cadastral</td>
-
-            <td data-label="Data">25/05/2026</td>
-
-            <td data-label="Status">
-              <span class="status andamento">Em análise</span>
-            </td>
-
-            <td class="acoes" data-label="Ações">
-              <div class="menu-acoes">
-                <button class="btn-acoes">
-                  <span class="material-symbols-outlined"> more_vert </span>
-                </button>
-
-                <div class="dropdown-acoes">
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> warning </span>
-
-                    <span>Resolver pendências</span>
-                  </button>
-
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> visibility </span>
-
-                    <span>Visualizar</span>
-                  </button>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td data-label="Protocolo">#2026-000156</td>
-
-            <td data-label="Serviço">Validação de Documentos</td>
-
-            <td data-label="Data">21/05/2026</td>
-
-            <td data-label="Status">
-              <span class="status concluido">Concluído</span>
-            </td>
-
-            <td class="acoes" data-label="Ações">
-              <div class="menu-acoes">
-                <button class="btn-acoes">
-                  <span class="material-symbols-outlined"> more_vert </span>
-                </button>
-
-                <div class="dropdown-acoes">
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> warning </span>
-
-                    <span>Resolver pendências</span>
-                  </button>
-
-                  <button class="dropdown-item">
-                    <span class="material-symbols-outlined"> visibility </span>
-
-                    <span>Visualizar</span>
-                  </button>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>-->
         <tbody>
           <tr *ngFor="let item of solicitacoes">
-            <td data-label="Protocolo">{{ item.protocolo }}</td>
+            <td data-label="Protocolo">
+              {{ item.protocolo }}
+            </td>
 
-            <td data-label="Serviço">{{ item.servico }}</td>
+            <td data-label="Serviço">
+              {{ item.servico }}
+            </td>
 
-            <td data-label="Data">{{ item.data }}</td>
+            <td data-label="Data">
+              {{ item.data }}
+            </td>
 
             <td data-label="Status">
               <span
@@ -171,20 +74,25 @@
             </td>
 
             <td class="acoes" data-label="Ações">
-              <div class="menu-acoes">
-                <button class="btn-acoes">
-                  <span class="material-symbols-outlined"> more_vert </span>
-                </button>
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Abrir ações"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
 
-                <div class="dropdown-acoes">
-                  <button class="dropdown-item" *ngFor="let acao of item.acoes">
-                    <span class="material-symbols-outlined">
-                      {{ acao.icone }}
-                    </span>
-                    <span>{{ acao.label }}</span>
-                  </button>
-                </div>
-              </div>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let acao of item.acoes">
+                  <mat-icon>
+                    {{ acao.icone }}
+                  </mat-icon>
+
+                  <span>
+                    {{ acao.label }}
+                  </span>
+                </button>
+              </mat-menu>
             </td>
           </tr>
         </tbody>

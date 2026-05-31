@@ -299,14 +299,12 @@
 }
 
 @media (max-width: 768px) {
-  /* REMOVIDO: * { padding: 0; } que quebrava o layout corporativo */
-
   .pagina-acompanhamento {
     padding: 16px;
   }
 
   .gov-table {
-    min-width: 100%; /* Modificado para alinhar perfeitamente */
+    min-width: 100%;
   }
 
   .gov-table thead {
@@ -323,23 +321,19 @@
   }
 
   .gov-table tr {
-    padding: 16px 0; /* Padding controlado apenas nas linhas internas */
+    padding: 16px 0;
     border-bottom: 1px solid #e5e7eb;
-  }
-
-  .gov-table tr:last-child {
-    border-bottom: none;
   }
 
   .gov-table td {
     border: none;
-    padding: 8px 16px; /* Adicionado um recuo lateral interno seguro */
+    padding: 8px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
     text-align: right;
-    word-break: break-word; /* Evita que textos longos estorem a tela lateralmente */
+    word-break: break-word;
   }
 
   .gov-table td::before {
@@ -347,11 +341,47 @@
     font-weight: 700;
     color: #4b5563;
     text-align: left;
-    min-width: 40%; /* Garante espaço fixo para a label fictícia */
+    min-width: 40%;
   }
+
+  /* =========================
+     AÇÕES MOBILE
+  ========================= */
 
   .acoes {
     justify-content: flex-end !important;
+    align-items: center;
+  }
+
+  .acoes::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #4b5563;
+  }
+
+  .menu-acoes {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-acoes {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: #f3f4f6;
+  }
+
+  .btn-acoes .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .dropdown-acoes {
+    right: 0;
+    left: auto;
+    width: 220px;
+    max-width: calc(100vw - 32px);
   }
 }
 
