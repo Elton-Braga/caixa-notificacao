@@ -582,6 +582,28 @@ mat-icon {
   .logogov {
     width: 80px;
   }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-acao {
+    width: 100%;
+    justify-content: center;
+  }
+  .sem-quebra {
+    white-space: nowrap;
+  }
 }
 
 /* =========================================

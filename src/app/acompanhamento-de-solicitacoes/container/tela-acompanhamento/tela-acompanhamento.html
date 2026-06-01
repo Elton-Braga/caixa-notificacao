@@ -63,9 +63,10 @@
             <td data-label="Status">
               <span
                 class="status"
+                [class.sem-quebra]="item.status !== 'CONCLUIDO'"
                 [ngClass]="{
-                  pendente: item.status === 'PENDENTE',
-                  andamento: item.status === 'EM_ANALISE',
+                  pendente:
+                    item.status === 'PENDENTE' || item.status === 'EM_ANALISE',
                   concluido: item.status === 'CONCLUIDO',
                 }"
               >
@@ -74,25 +75,27 @@
             </td>
 
             <td class="acoes" data-label="Ações">
-              <button
-                mat-icon-button
-                [matMenuTriggerFor]="menu"
-                aria-label="Abrir ações"
-              >
-                <mat-icon>more_vert</mat-icon>
-              </button>
-
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item *ngFor="let acao of item.acoes">
-                  <mat-icon>
-                    {{ acao.icone }}
-                  </mat-icon>
-
-                  <span>
-                    {{ acao.label }}
-                  </span>
+              <div class="container-botao-acao">
+                <button
+                  *ngIf="item.status !== 'CONCLUIDO'"
+                  mat-stroked-button
+                  color="warn"
+                  class="btn-acao"
+                >
+                  <mat-icon>warning</mat-icon>
+                  <span>Resolver Pendências</span>
                 </button>
-              </mat-menu>
+
+                <button
+                  *ngIf="item.status === 'CONCLUIDO'"
+                  mat-stroked-button
+                  color="primary"
+                  class="btn-acao"
+                >
+                  <mat-icon>visibility</mat-icon>
+                  <span>Visualizar</span>
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>

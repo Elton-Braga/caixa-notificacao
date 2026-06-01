@@ -8,6 +8,45 @@
   font-family: var(--font-family-base, "Rawline", sans-serif);
 }
 
+.upload-imagem {
+  width: 100%;
+  min-height: 120px;
+
+  border: 2px dashed #bdbdbd;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.upload-imagem:hover {
+  border-color: #1976d2;
+  background: rgba(25, 118, 210, 0.04);
+}
+
+.upload-imagem mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+
+  color: #757575;
+}
+
+.upload-imagem span {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #616161;
+}
+
 /* CARD PRINCIPAL */
 
 .justificativa-container {

@@ -373,6 +373,16 @@
     background: #f3f4f6;
   }
 
+  .sem-quebra {
+    white-space: nowrap;
+  }
+
+  .btn-acao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .btn-acoes .material-symbols-outlined {
     font-size: 20px;
   }
@@ -382,6 +392,13 @@
     left: auto;
     width: 220px;
     max-width: calc(100vw - 32px);
+  }
+
+  .gov-table td.acoes {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    text-align: left; /* Garante base estável */
   }
 }
 

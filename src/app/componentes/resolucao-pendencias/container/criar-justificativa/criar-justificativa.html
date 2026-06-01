@@ -1,6 +1,16 @@
 <div class="justificativa-container">
   <h2>Criar Justificativa</h2>
 
+  <!-- 1. Anexar imagem -->
+  <div class="upload-imagem" (click)="inputImagem.click()">
+    <mat-icon>image</mat-icon>
+
+    <span>Anexar Imagem</span>
+
+    <input #inputImagem type="file" accept="image/*" hidden />
+  </div>
+
+  <!-- 2. Texto -->
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Digite a justificativa</mat-label>
 
@@ -12,16 +22,9 @@
     ></textarea>
   </mat-form-field>
 
-  <div class="acoes">
-    <button mat-stroked-button color="warn" (click)="cancelar()">
-      Cancelar
-    </button>
+  <!-- 3. Enviar -->
+  <button mat-flat-button color="primary" (click)="salvar()">Enviar</button>
 
-    <button mat-stroked-button color="warn">
-      <mat-icon>attach_file</mat-icon>
-      Anexar arquivo
-    </button>
-
-    <button mat-flat-button color="primary" (click)="salvar()">Enviar</button>
-  </div>
+  <!-- 4. Cancelar -->
+  <button mat-stroked-button color="warn" (click)="cancelar()">Cancelar</button>
 </div>
