@@ -54,7 +54,19 @@
                           </p>
                         </div>
 
-                        @if (podeCriarJustificativa(categoria)) {
+                        @if (categoria === "Supervisão") {
+                          <div class="acoes-card">
+                            <a
+                              mat-flat-button
+                              color="primary"
+                              class="botao-salvar"
+                              href="#"
+                            >
+                              <mat-icon>visibility</mat-icon>
+                              Supervisão
+                            </a>
+                          </div>
+                        } @else if (podeCriarJustificativa(categoria)) {
                           <div class="acoes-card">
                             <button
                               mat-flat-button

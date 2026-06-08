@@ -46,8 +46,18 @@ export class Mensagens {
     this.mensagem = NOTIFICACOES_MOCK.mensagens.find((m) => m.id === id)!;
   }
   visualizarDocumento() {
-    const pdfUrl = 'assets/exemplo.pdf'; // 🔥 seu arquivo
-    this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
+    // 🛑 Correção do caminho: Remova o 'src/' do início.
+    // O Angular já serve a pasta assets diretamente a partir da raiz.
+    const pdfUrl = 'assets/exemplo.pdf';
+
+    // Primeiro limpamos o estado para forçar o iframe a remontar caso o botão seja clicado de novo
+    this.pdfSrc = null;
+
+    // Usamos um pequeno timeout apenas para garantir que a detecção de mudanças do Angular
+    // limpe o iframe anterior antes de renderizar o novo caminho seguro.
+    setTimeout(() => {
+      this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
+    }, 50);
   }
   voltar() {
     this.router.navigate(['/tela-principal/caixa']);

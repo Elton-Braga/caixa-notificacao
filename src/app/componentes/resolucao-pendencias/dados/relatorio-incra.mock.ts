@@ -161,6 +161,41 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         },
       ],
     },
+    {
+      categoria: 'Supervisão',
+      itens: [
+        {
+          titulo: 'Supervisão ocupacional realizada',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Conformidade da ocupação com os critérios do programa',
+          resposta: 'Em análise',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Registro fotográfico validado',
+          resposta: 'Pendente de conferência',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Confirmação da exploração direta da área',
+          resposta: 'Em análise',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Supervisão de campo concluída',
+          resposta: 'Não realizada',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Parecer final da supervisão',
+          resposta: 'Aguardando emissão',
+          status: 'Pendente',
+        },
+      ],
+    },
   ],
 
   painelAnalitico: [

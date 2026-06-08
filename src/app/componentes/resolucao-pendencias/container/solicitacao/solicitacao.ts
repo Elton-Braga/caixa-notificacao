@@ -119,6 +119,10 @@ export class Solicitacao {
     return categoria !== 'Pendências a serem analisadas pelo Incra';
   }
 
+  isSupervisao(categoria: string): boolean {
+    return categoria === 'Supervisão';
+  }
+
   acaoJustificativa(pendencia: any): void {
     if (!pendencia.justificativaCriada) {
       this.abrirModalJustificativa(pendencia);
