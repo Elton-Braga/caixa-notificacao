@@ -54,30 +54,32 @@
                           </p>
                         </div>
 
-                        <div class="acoes-card">
-                          <button
-                            mat-flat-button
-                            type="button"
-                            color="primary"
-                            class="botao-salvar"
-                            [disabled]="pendencia.justificativaCriada"
-                            (click)="acaoJustificativa(pendencia)"
-                          >
-                            <mat-icon>
+                        @if (podeCriarJustificativa(categoria)) {
+                          <div class="acoes-card">
+                            <button
+                              mat-flat-button
+                              type="button"
+                              color="primary"
+                              class="botao-salvar"
+                              [disabled]="pendencia.justificativaCriada"
+                              (click)="acaoJustificativa(pendencia)"
+                            >
+                              <mat-icon>
+                                {{
+                                  pendencia.justificativaCriada
+                                    ? "send"
+                                    : "add_comment"
+                                }}
+                              </mat-icon>
+
                               {{
                                 pendencia.justificativaCriada
-                                  ? "send"
-                                  : "add_comment"
+                                  ? "Justificativa enviada"
+                                  : "Criar Justificativa"
                               }}
-                            </mat-icon>
-
-                            {{
-                              pendencia.justificativaCriada
-                                ? "Justificativa enviada"
-                                : "Criar Justificativa"
-                            }}
-                          </button>
-                        </div>
+                            </button>
+                          </div>
+                        }
                       </div>
                     </div>
                   </details>

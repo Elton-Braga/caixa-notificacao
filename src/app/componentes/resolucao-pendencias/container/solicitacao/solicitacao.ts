@@ -115,6 +115,10 @@ export class Solicitacao {
     return this.pendencias.filter((p) => p.categoria === categoria).length;
   }
 
+  podeCriarJustificativa(categoria: string): boolean {
+    return categoria !== 'Pendências a serem analisadas pelo Incra';
+  }
+
   acaoJustificativa(pendencia: any): void {
     if (!pendencia.justificativaCriada) {
       this.abrirModalJustificativa(pendencia);
