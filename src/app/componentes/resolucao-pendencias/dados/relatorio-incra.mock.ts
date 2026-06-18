@@ -74,16 +74,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
           resposta: 'Sim',
           status: 'Pendente',
         },
-        {
-          titulo: 'Beneficiário da Reforma Agrária',
-          resposta: 'Sim',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Renda familiar declarada inconsistente',
-          resposta: 'Não informado',
-          status: 'Pendente',
-        },
+
         {
           titulo:
             'Quitação ou assunção pelo interessado, até a assinatura do novo CCU, dos débitos relativos ao crédito instalação reembolsável concedido ao beneficiário original?',
