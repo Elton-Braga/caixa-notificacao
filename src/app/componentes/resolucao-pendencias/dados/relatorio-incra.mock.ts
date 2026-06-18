@@ -54,7 +54,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
   ],
 
   validacoes: [
-    {
+    /*{
       categoria: 'Pendências a serem analisadas pelo Incra',
       itens: [
         {
@@ -88,7 +88,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
           status: 'Pendente',
         },
       ],
-    },
+    },*/
     {
       categoria: 'Dados Pessoais',
       itens: [

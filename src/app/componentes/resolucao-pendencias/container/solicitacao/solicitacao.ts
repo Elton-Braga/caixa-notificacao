@@ -172,7 +172,7 @@ const REGRAS_PENDENCIAS: Record<
       permiteDocumento: true,
     },
 
-  'É proprietário, cotista ou acionista de sociedade empresária inativa, exceto MEI?':
+  'É proprietário, cotista ou acionista de sociedade empresária em atividade, exceto MEI?':
     {
       mensagem:
         'Envie comprovante de baixa do CNPJ ou documento que comprove que sua participação se enquadra nas exceções permitidas (associação, sindicato, cooperativa ou instituição sem fins lucrativos).',
