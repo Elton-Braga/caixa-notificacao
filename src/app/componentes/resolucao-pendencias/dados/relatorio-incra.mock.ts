@@ -119,6 +119,40 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
           resposta: 'Não informado',
           status: 'Pendente',
         },
+        {
+          titulo:
+            'Quitação ou assunção pelo interessado, até a assinatura do novo CCU, dos débitos relativos ao crédito instalação reembolsável concedido ao beneficiário original?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
+        {
+          titulo:
+            'A renda familiar é proveniente de atividade não agrária superior a três salários mínimos mensais ou superior a um salário mínimo per capita?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'É menor que 18 anos não emancipado na forma da lei civil?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
+        {
+          titulo:
+            'Ocupante e/ou cônjuge possuem benefício previdenciário ativo?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
+        {
+          titulo:
+            'Cônjuge informado na solicitação é o mesmo que consta no CadÚnico?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'Ocupante e/ou cônjuge são beneficiários da Reforma Agrária?',
+          resposta: 'Não informado',
+          status: 'Pendente',
+        },
       ],
     },
 
