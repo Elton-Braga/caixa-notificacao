@@ -11,7 +11,7 @@
             <summary class="accordion-header">
               <div class="header-conteudo">
                 <span class="categoria-texto-header">
-                  {{ categoria }}
+                  <strong>{{ categoria }}</strong>
                 </span>
                 <span class="badge-pendencia">
                   {{ getQuantidadePorCategoria(categoria) }}
@@ -36,18 +36,21 @@
                   >
                     <summary class="accordion-header">
                       <div class="header-conteudo">
-                        <span class="titulo-pendencia-header">
-                          {{ pendencia.titulo }}
-                        </span>
+                        <strong
+                          ><span class="titulo-pendencia-header">
+                            {{ pendencia.titulo }}
+                          </span></strong
+                        >
                       </div>
                     </summary>
 
                     <div class="accordion-body">
                       <div class="formulario-pendencia">
                         <div class="informacoes-pendencia">
+                          <!--
                           <h3 class="titulo-pendencia">
                             {{ pendencia.titulo }}
-                          </h3>
+                          </h3>-->
 
                           <p class="descricao-pendencia">
                             {{ pendencia.descricao }}
