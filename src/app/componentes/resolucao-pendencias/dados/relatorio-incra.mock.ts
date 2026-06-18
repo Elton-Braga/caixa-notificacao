@@ -93,17 +93,19 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
       categoria: 'Dados Pessoais',
       itens: [
         {
-          titulo: 'Cargo ou função pública',
+          titulo:
+            'É ocupante de cargo, emprego ou função pública remunerada e, caso positivo, atua em profissões não previstas no §2º do Art. 20 da Lei 8.629/1993?',
           resposta: 'Não',
           status: 'Pendente',
         },
         {
-          titulo: 'Sociedade empresária ativa',
+          titulo:
+            'É proprietário, cotista ou acionista de sociedade empresária em atividade, exceto MEI?',
           resposta: 'Não',
           status: 'Pendente',
         },
         {
-          titulo: 'Possui inscrição ativa no CadÚnico',
+          titulo: 'Possui inscrição ativa no CadÚnico?',
           resposta: 'Sim',
           status: 'Pendente',
         },

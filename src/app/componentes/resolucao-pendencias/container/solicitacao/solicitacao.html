@@ -54,7 +54,7 @@
                           </p>
                         </div>
 
-                        @if (categoria === "Supervisão") {
+                        @if (pendencia.textoBotao === "Fazer Autossupervisão") {
                           <div class="acoes-card">
                             <a
                               mat-flat-button
@@ -63,17 +63,20 @@
                               href="https://marcorapg.github.io/PrototipoINCRAMobile/autosupervisaoocupacional"
                             >
                               <mat-icon>visibility</mat-icon>
-                              Supervisão
+                              Fazer Autossupervisão
                             </a>
                           </div>
-                        } @else if (podeCriarJustificativa(pendencia)) {
+                        } @else if (podeExibirBotaoJustificativa(pendencia)) {
                           <div class="acoes-card">
                             <button
                               mat-flat-button
                               type="button"
                               color="primary"
                               class="botao-salvar"
-                              [disabled]="pendencia.justificativaCriada"
+                              [disabled]="
+                                pendencia.justificativaCriada ||
+                                !pendencia.permiteJustificativa
+                              "
                               (click)="acaoJustificativa(pendencia)"
                             >
                               <mat-icon>

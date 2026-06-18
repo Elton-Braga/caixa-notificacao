@@ -30,10 +30,7 @@ export class Solicitacao {
     categoria.itens
       .filter((item) => item.status.toLowerCase() === 'pendente')
       .map((item) => {
-        const regra =
-          categoria.categoria === 'Dados Pessoais'
-            ? REGRAS_PENDENCIAS[item.titulo]
-            : undefined;
+        const regra = REGRAS_PENDENCIAS[item.titulo];
 
         return {
           categoria: categoria.categoria,
@@ -43,9 +40,13 @@ export class Solicitacao {
 
           descricao:
             regra?.mensagem ??
-            'Pendência identificada automaticamente pelo sistema durante a análise do requerimento.',
+            'Aguarde a análise e validação das informações pelo Incra.',
 
           permiteDocumento: regra?.permiteDocumento ?? true,
+
+          permiteJustificativa: regra?.permiteJustificativa ?? true,
+
+          textoBotao: regra?.textoBotao ?? 'Criar Justificativa',
 
           justificativa: '',
           justificativaCriada: false,
@@ -62,7 +63,9 @@ export class Solicitacao {
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
   ) {}
-
+  podeExibirBotaoJustificativa(pendencia: any): boolean {
+    return pendencia.textoBotao !== 'Fazer Autossupervisão';
+  }
   getPendenciasPorCategoria(categoria: string) {
     return this.pendencias.filter((p) => p.categoria === categoria);
   }
@@ -154,6 +157,7 @@ const REGRAS_PENDENCIAS: Record<
   {
     mensagem: string;
     permiteDocumento: boolean;
+    permiteJustificativa?: boolean;
     textoBotao?: string;
   }
 > = {
@@ -204,11 +208,13 @@ const REGRAS_PENDENCIAS: Record<
   'Possui inscrição ativa no CadÚnico?': {
     mensagem: 'Aguarde a análise e validação das informações pelo Incra.',
     permiteDocumento: false,
+    permiteJustificativa: false,
   },
 
   'Cônjuge informado na solicitação é o mesmo que consta no CadÚnico?': {
     mensagem: 'Aguarde a análise e validação das informações pelo Incra.',
     permiteDocumento: false,
+    permiteJustificativa: false,
   },
 
   'Ocupante e/ou cônjuge são beneficiários da Reforma Agrária?': {
