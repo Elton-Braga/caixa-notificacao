@@ -181,22 +181,102 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
       categoria: 'Titulação',
       itens: [
         {
-          titulo: 'Registro de exclusão no SIPRA',
+          titulo:
+            'É excluído ou afastado do programa de reforma agrária sem consentimento do órgão executor no SIPRA?',
           resposta: 'Não',
           status: 'Pendente',
         },
         {
-          titulo: 'Conflito agrário',
+          titulo:
+            'É excluído ou afastado do programa de regularização fundiária sem consentimento do órgão executor na PGT, Sisterleg ou SIGEF Titulação?',
           resposta: 'Não',
           status: 'Pendente',
         },
         {
-          titulo: 'Sobreposição de área não regularizada',
+          titulo:
+            'É excluído ou afastado do Programa Nacional do Crédito Fundiário sem consentimento do órgão executor?',
+          resposta: 'Sim',
+          status: 'Pendente',
+        },
+        {
+          titulo:
+            'Ocupante e/ou cônjuge possuem registros anteriores como cônjuge não atual com outras pessoas no SIPRA?',
           resposta: 'Sim',
           status: 'Pendente',
         },
       ],
     },
+
+    {
+      categoria: 'Conflitos e Tensões',
+      itens: [
+        {
+          titulo:
+            'Existe registro de conflito agrário para o CPF do solicitante?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+      ],
+    },
+
+    {
+      categoria: 'Dados do Imóvel',
+      itens: [
+        {
+          titulo: 'Ocupa e explora a parcela há, no mínimo, 1 ano?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+        {
+          titulo:
+            'Inexistência de candidatos excedentes interessados na parcela?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+        {
+          titulo: 'É proprietário rural?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+      ],
+    },
+
+    {
+      categoria: 'Supervisão Ocupacional',
+      itens: [
+        {
+          titulo:
+            'Há laudo registrado para os ocupantes nos sistemas de supervisão ocupacional?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+      ],
+    },
+
+    {
+      categoria: 'Embargos IBAMA',
+      itens: [
+        {
+          titulo:
+            'Existem embargos ou infrações no IBAMA em nome dos solicitantes?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+      ],
+    },
+
+    {
+      categoria: 'Trabalho Escravo',
+      itens: [
+        {
+          titulo:
+            'Existe registro dos solicitantes na lista de empregadores de trabalhadores em regime análogo à escravidão?',
+          resposta: 'Não',
+          status: 'Pendente',
+        },
+      ],
+    },
+
     {
       categoria: 'Supervisão',
       itens: [
