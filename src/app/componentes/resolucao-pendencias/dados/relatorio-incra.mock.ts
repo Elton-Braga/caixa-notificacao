@@ -54,41 +54,6 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
   ],
 
   validacoes: [
-    /*{
-      categoria: 'Pendências a serem analisadas pelo Incra',
-      itens: [
-        {
-          titulo: 'Necessidade de vistoria complementar da ocupação',
-          resposta: 'Pendente de análise',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Validação da documentação apresentada',
-          resposta: 'Em análise',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Análise da renda familiar declarada',
-          resposta: 'Aguardando parecer',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Verificação de sobreposição de área',
-          resposta: 'Em análise técnica',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Manifestação da Superintendência Regional',
-          resposta: 'Não realizada',
-          status: 'Pendente',
-        },
-        {
-          titulo: 'Conclusão do parecer técnico',
-          resposta: 'Aguardando',
-          status: 'Pendente',
-        },
-      ],
-    },*/
     {
       categoria: 'Dados Pessoais',
       itens: [
@@ -155,7 +120,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         },
       ],
     },
-
+    /*
     {
       categoria: 'Embargos e Fiscalização',
       itens: [
@@ -175,7 +140,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
           status: 'Pendente',
         },
       ],
-    },
+    },*/
 
     {
       categoria: 'Titulação',
@@ -276,7 +241,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
         },
       ],
     },
-
+    /*
     {
       categoria: 'Supervisão',
       itens: [
@@ -311,7 +276,7 @@ export const RELATORIO_INCRA_MOCK: RelatorioINCRA = {
           status: 'Pendente',
         },
       ],
-    },
+    },*/
   ],
 
   painelAnalitico: [
