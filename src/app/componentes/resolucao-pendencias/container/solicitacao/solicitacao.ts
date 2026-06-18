@@ -172,7 +172,7 @@ const REGRAS_PENDENCIAS: Record<
       permiteDocumento: true,
     },
 
-  'É proprietário, cotista ou acionista de sociedade empresária em atividade, exceto MEI?':
+  'É proprietário, cotista ou acionista de sociedade empresária inativa, exceto MEI?':
     {
       mensagem:
         'Envie comprovante de baixa do CNPJ ou documento que comprove que sua participação se enquadra nas exceções permitidas (associação, sindicato, cooperativa ou instituição sem fins lucrativos).',
@@ -269,10 +269,12 @@ const REGRAS_PENDENCIAS: Record<
       permiteDocumento: true,
     },
 
+  // ALTERADO: Adicionado 'permiteJustificativa: false' para desabilitar o botão
   'Ocupante e/ou cônjuge possuem registros anteriores como cônjuge não atual com outras pessoas no SIPRA?':
     {
       mensagem: 'Aguarde a análise e validação das informações pelo Incra.',
       permiteDocumento: false,
+      permiteJustificativa: false,
     },
 
   // =========================
@@ -295,9 +297,11 @@ const REGRAS_PENDENCIAS: Record<
     permiteDocumento: true,
   },
 
+  // ALTERADO: Adicionado 'permiteJustificativa: false' para desabilitar o botão
   'Inexistência de candidatos excedentes interessados na parcela?': {
     mensagem: 'Aguarde a análise e validação das informações pelo Incra.',
     permiteDocumento: false,
+    permiteJustificativa: false,
   },
 
   'É proprietário rural?': {
@@ -310,11 +314,13 @@ const REGRAS_PENDENCIAS: Record<
   // SUPERVISÃO OCUPACIONAL
   // =========================
 
+  // ALTERADO: Adicionado 'permiteJustificativa: false' para desabilitar o botão caso o template mude e passe a usar essa flag
   'Há laudo registrado para os ocupantes nos sistemas de supervisão ocupacional?':
     {
       mensagem:
         'Realize a Autossupervisão Ocupacional para atualização das informações.',
       permiteDocumento: false,
+      permiteJustificativa: false,
       textoBotao: 'Fazer Autossupervisão',
     },
 };
